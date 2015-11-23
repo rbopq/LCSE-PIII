@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-11-22T19:55:02</DateModified>
+  <DateModified>2015-11-22T21:00:01</DateModified>
   <ModuleName>ram</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/iseconfig/PICtop_tb.xreport</SavedFilePath>
+  <SavedFilePath>C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/iseconfig/ram.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII\</ImplementationReportsDirectory>
-  <DateInitialized>2015-11-22T19:54:07</DateInitialized>
+  <DateInitialized>2015-11-22T19:56:40</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
