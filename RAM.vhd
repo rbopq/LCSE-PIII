@@ -4,7 +4,6 @@ USE IEEE.std_logic_1164.all;
 USE IEEE.std_logic_arith.all;
 USE IEEE.std_logic_unsigned.all;
 
-USE work.PIC_pkg.all;
 
 ENTITY ram IS
 PORT (
@@ -12,7 +11,7 @@ PORT (
    Reset    : in    std_logic;
    write_en : in    std_logic;
    oe       : in    std_logic;
-   address  : in    std_logic_vector(3 downto 0);
+   address  : in    std_logic_vector(7 downto 0);
    databus  : inout std_logic_vector(7 downto 0);
 	switches : out std_logic_vector(7 downto 0);
 	temp_l	: out std_logic_vector(3 downto 0);
@@ -27,7 +26,7 @@ COMPONENT ram_peripheals
 				Reset    : in    std_logic;
 				write_en : in    std_logic;
 				oe       : in    std_logic;
-				address  : in    std_logic_vector(3 downto 0);
+				address  : in    std_logic_vector(7 downto 0);
 				databus  : inout std_logic_vector(7 downto 0);
 				switches : out std_logic_vector(7 downto 0);
 				temp_l	: out std_logic_vector(3 downto 0);
@@ -35,41 +34,45 @@ COMPONENT ram_peripheals
 				CS			: in std_logic 
 		  );
 END COMPONENT;
--- RAM para propósito general
+
 COMPONENT ram_gp
-	PORT(	
+	PORT (
 				Clk      : in    std_logic;
 				write_en : in    std_logic;
 				oe       : in    std_logic;
-				address  : in    std_logic_vector(3 downto 0);
+				address  : in    std_logic_vector(7 downto 0);
 				databus  : inout std_logic_vector(7 downto 0);
 				switches : out std_logic_vector(7 downto 0);
 				temp_l	: out std_logic_vector(3 downto 0);
 				temp_h	: out std_logic_vector(3 downto 0);
-				CS			: in std_logic
+				CS			: in std_logic 
 		  );
 END COMPONENT;
 
-SIGNAL CS_PRam : std_logic;
-SIGNAL CS_GPRam : std_logic;
+SIGNAL address_aux:	std_logic_vector(1 downto 0);
+SIGNAL CS_ram_periph : std_logic;
+SIGNAL CS_ram_gp : std_logic;
+
+
 
 BEGIN
 
-periph_ram	: ram_peripheals  PORT MAP (Clk,Reset,write_en,oe,address,databus,switches,temp_l,temp_h, CS_PRam);
-gp_ram		: ram_gp 			PORT MAP (Clk,write_en,oe,address,databus,switches,temp_l,temp_h,CS_GPRam);
+periph_ram	: ram_peripheals  PORT MAP (Clk,Reset,write_en,oe,address,databus,switches,temp_l,temp_h,CS_ram_periph);
+gp_ram		: ram_gp	 PORT MAP (Clk,write_en,oe,address,databus,switches,temp_l,temp_h,CS_ram_gp);
+
 
 -------------------------------------------------------------------------
 -- Proceso para habilitar o deshabilitar segmentos de RAM
 -------------------------------------------------------------------------
 cs_ram : process (address)  -- no reset
 begin
-	case address(7 downto 5) is
-		when "000" => 
-			CS_PRam <='1'; 
-			CS_GPRam<='0';
-		when others=> 
-			CS_PRam <='0'; 
-			CS_GPRam<='1';
+	case address(7 downto 6) is
+		when "00" => 
+			CS_ram_periph <='1'; 
+			CS_ram_gp<='0';
+		when others=>
+			CS_ram_periph <='0'; 
+			CS_ram_gp<='1';			
 	end case;
 end process;
 

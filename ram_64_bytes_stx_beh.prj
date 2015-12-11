@@ -1,3 +1,2 @@
 vhdl isim_temp "PIC_pkg.vhd"
 vhdl isim_temp "ram_64_bytes.vhd"
-vhdl isim_temp "RAM.vhd"

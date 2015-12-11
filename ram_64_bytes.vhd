@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    20:19:11 11/22/2015 
+-- Create Date:    17:31:25 11/27/2015 
 -- Design Name: 
--- Module Name:    ram_peripheals - Behavioral 
+-- Module Name:    ram_64_bytes - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -24,16 +24,12 @@ USE IEEE.std_logic_unsigned.all;
 
 USE work.PIC_pkg.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-ENTITY ram_peripheals IS
+ENTITY ram_64_bytes IS
 PORT(
 		Clk      : in    std_logic;
 		Reset    : in    std_logic;
@@ -46,16 +42,14 @@ PORT(
 		temp_h	: out std_logic_vector(3 downto 0);
 		CS			: in std_logic 
 	);
-END ram_peripheals;
+END ram_64_bytes;
 
-architecture Behavioral of ram_peripheals is
+architecture Behavioral of ram_64_bytes is
+  SIGNAL contents_ram : array8_ram(15 downto 0);
 
-SIGNAL contents_ram : array8_ram(64);
-	
 begin
-
 -------------------------------------------------------------------------
--- Bloque de memoria de 64 palabras de 8 bits para periféricos
+-- Bloque de memoria de 64 palabras de 8 bits
 -------------------------------------------------------------------------
 ram_64_bytes : process (Clk,Reset)  -- no reset
 begin

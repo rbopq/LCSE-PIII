@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_isim_beh.exe" -prj "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_beh.prj" "work.ram" 

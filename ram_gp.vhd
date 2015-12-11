@@ -47,7 +47,7 @@ end ram_gp;
 
 architecture Behavioral of ram_gp is
 
-signal contents_ram : array8_ram(5 downto 0);
+signal contents_ram : array8_ram(192);
 
 begin
 -------------------------------------------------------------------------

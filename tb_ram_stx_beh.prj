@@ -1,0 +1,5 @@
+vhdl isim_temp "PIC_pkg.vhd"
+vhdl isim_temp "ram_peripheals.vhd"
+vhdl isim_temp "ram_gp.vhd"
+vhdl isim_temp "RAM.vhd"
+vhdl isim_temp "tb_ram.vhd"

@@ -128,12 +128,16 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-      wait for 100 ns;	
-
+		Reset<='0';
+      wait for 10 ns;	
+		Reset<='1';
+		
+		
+	
       wait for Clk_period*10;
-
-      -- insert stimulus here 
-
+  
+		
+		
       wait;
    end process;
 

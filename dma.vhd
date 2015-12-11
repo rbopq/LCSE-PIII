@@ -163,7 +163,7 @@ begin
 	end if;
 end process;
 
-databus <= RCVD_Data when DMA_ACK='1' else (others => 'Z');
+--databus <= RCVD_Data when DMA_ACK='1' else (others => 'Z');
 
 	
 end Behavioral;

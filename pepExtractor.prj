@@ -1,1 +1,3 @@
-work	"dma.vhd"
+work	"PIC_pkg.vhd"
+work	"RAM.vhd"
+work	"ram_64_bytes.vhd"
