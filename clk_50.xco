@@ -1,7 +1,7 @@
 ##############################################################
 #
-# Xilinx Core Generator version 12.4
-# Date: Fri Nov 20 16:55:26 2015
+# Xilinx Core Generator version 14.7
+# Date: Fri Dec 11 17:34:55 2015
 #
 ##############################################################
 #
@@ -12,12 +12,16 @@
 #
 ##############################################################
 #
+#  Generated from component: xilinx.com:ip:Clocking_Wizard:1.8
+#
+##############################################################
+#
 # BEGIN Project Options
 SET addpads = false
 SET asysymbol = true
 SET busformat = BusFormatAngleBracketNotRipped
 SET createndf = false
-SET designentry = Advanced
+SET designentry = VHDL
 SET device = xc6slx16
 SET devicefamily = spartan6
 SET flowvendor = Foundation_ISE
@@ -28,11 +32,11 @@ SET package = csg324
 SET removerpms = false
 SET simulationfiles = Behavioral
 SET speedgrade = -3
-SET verilogsim = true
+SET verilogsim = false
 SET vhdlsim = true
 # END Project Options
 # BEGIN Select
-SELECT Clocking_Wizard family Xilinx,_Inc. 1.8
+SELECT Clocking_Wizard xilinx.com:ip:Clocking_Wizard:1.8
 # END Select
 # BEGIN Parameters
 CSET calc_done=DONE
@@ -219,4 +223,4 @@ CSET use_spread_spectrum=false
 CSET use_status=false
 # END Parameters
 GENERATE
-# CRC: f1c7639c
+# CRC: 6a25394d

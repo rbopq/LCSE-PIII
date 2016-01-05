@@ -1,0 +1,18 @@
+WARNING:coreutil:928 - Unable to find 'xilinx.com:ip:Clocking_Wizard:1.8' within
+   repository.
+WARNING:coreutil:928 - Unable to find 'xilinx.com:ip:Clocking_Wizard:1.8' within
+   repository.
+WARNING:sim - The IP Clocking Wizard 1.8 does not exist within the repository,
+   and cannot be recustomized or regenerated. It is not available in CoreGen
+   14.7, and may have been removed or replaced. To generate Clocking Wizard 1.8
+   please use a previous version of ISE in which this IP is available, or add
+   the user repository which contains this IP.
+INFO:sim:172 - Generating IP...
+Applying current project options...
+Finished applying current project options.
+WARNING:sim - The chosen IP does not support an SYM schematic symbol.
+Generating FLIST file...
+INFO:sim:948 - Finished FLIST file generation.
+Moving files to output directory...
+Finished moving files to output directory
+Wrote CGP file for project 'clk_50'.

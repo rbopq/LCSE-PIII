@@ -1,0 +1,3 @@
+# Output products list for <clk_50>
+clk_50.xco
+clk_50_flist.txt

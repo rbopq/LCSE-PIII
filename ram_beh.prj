@@ -1,3 +1,4 @@
 vhdl work "PIC_pkg.vhd"
-vhdl work "ram_64_bytes.vhd"
+vhdl work "ram_peripheals.vhd"
+vhdl work "ram_gp.vhd"
 vhdl work "RAM.vhd"

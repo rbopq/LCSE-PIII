@@ -1,0 +1,29 @@
+Command line:
+   dma_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49165
+
+Tue Jan 05 13:22:39 2016
+
+
+ Elaboration Time: 0.03125 sec
+
+ Current Memory Usage: 837.161 Meg
+
+ Total Signals          : 23
+ Total Nets             : 52
+ Total Signal Drivers   : 14
+ Total Blocks           : 3
+ Total Primitive Blocks : 3
+ Total Processes        : 4
+ Total Traceable Variables  : 14
+ Total Scalar Nets and Variables : 536
+Total Line Count : 80
+
+ Total Simulation Time: 0.109375 sec
+
+ Current Memory Usage: 837.161 Meg
+
+Tue Jan 05 13:22:48 2016
+

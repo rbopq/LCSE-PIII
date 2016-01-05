@@ -50,7 +50,7 @@ END ram_peripheals;
 
 architecture Behavioral of ram_peripheals is
 
-SIGNAL contents_ram : array8_ram(64);
+SIGNAL contents_ram : array8_ram(6 downto 0);
 	
 begin
 
@@ -60,10 +60,10 @@ begin
 ram_64_bytes : process (Clk,Reset)  -- no reset
 begin
 	if Reset = '0' then
-		for i in 0 to	63 loop
-			contents_ram(i)<=(others => '0');
+--		for i in 0 to	63 loop
+--			contents_ram(i)<=(others => '0');
 			-- Revisar si es necesario cambiar valor por defecto de termostatos
-		end loop;
+--		end loop;
 	else 
 		if CS='1' then -- CS asíncrono
 			if clk'event and clk = '1' then	

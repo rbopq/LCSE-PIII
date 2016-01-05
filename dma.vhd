@@ -64,9 +64,9 @@ signal CurrentState, NextState : State ;
 begin
 
 -- Lógica de cálculo de salida
-calculo_salidas: process(CurrentState, RX_Empty, Send_comm, data_count, DMA_ACK)
+calculo_salidas: process(CurrentState, RX_Empty, Send_comm, data_count, DMA_ACK, RCVD_Data)
 begin
-	NextState <= CurrentState;	
+	--NextState <= CurrentState;	
 	case CurrentState is
 		when Idle =>
 			if RX_Empty = '0' then -- Transición si la pila del RX232 no está vacía
@@ -76,37 +76,73 @@ begin
 				en_data_count <= '1';
 				syn_rst <= '0';
 			end if;
+			Data_Read <= '0';
+         Valid_D <= '0';
+         TX_Data <=(others => '0');
+         Address <=(others => '0');
+         Databus <=(others => 'Z');
+         Write_en <= '0';
+         OE <= '0';
+         DMA_RQ <= '0';
+         READY <= '0';
 		when DMA_send =>
 			if data_count = 2 then 
 				READY <='1';
 				en_data_count<='0';
 				syn_rst<='1';
 			end if;
+			Data_Read <= '0';
+         Valid_D <= '0';
+         TX_Data <=(others => '0');
+         Address <=(others => '0');
+         Databus <=(others => 'Z');
+         Write_en <= '0';
+         OE <= '0';
+         DMA_RQ <= '1';
+         READY <= '0';
 		when DMA_wait_Bus =>
 			if DMA_ACK='1' then
-				en_data_count<='1';
+				en_data_count<='0';
 				syn_rst<='0';
 			end if;
+			Data_Read <= '0';
+         Valid_D <= '0';
+         TX_Data <=(others => '0');
+         Address <=(others => '0');
+         Databus <=(others => 'Z');
+         Write_en <= '0';
+         OE <= '0';
+         DMA_RQ <= '1';
+         READY <= '0';
 		when DMA_write_ram=>
 			if data_count = 3 then 
+				Data_Read <= '1';
 				DMA_RQ <='0';
 				Databus<="11111111";
-				Address<=std_logic_vector(Base_RAM+data_count);
+				Address<=std_logic_vector(to_unsigned(Base_RAM,8)+data_count);
 				en_data_count<='0';
 				syn_rst<='1';
 				Write_en<='1';
 				OE<='1';
 			else
+				Data_Read <= '1';
 				Databus<=RCVD_Data;
-				Address<=std_logic_vector(Base_RAM+data_count);
+				Address<=std_logic_vector(to_unsigned(Base_RAM,8)+data_count);
 				Write_en<='1';
 				OE<='1';
 			end if;
-			
+         Valid_D <= '0';
+         TX_Data <=(others => '0');
+--         Address <=(others => '0');
+--         Databus <=(others => 'Z');
+--        Write_en <= '0';
+--         OE <= '0';
+         DMA_RQ <= '1';
+         READY <= '0';
 	end case;
 end process;	
 
-process (CurrentState)
+process(CurrentState, RX_Empty, Send_comm, data_count, DMA_ACK)
 	begin
 		case CurrentState is
 			 when Idle=>

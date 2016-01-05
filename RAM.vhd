@@ -44,8 +44,7 @@ COMPONENT ram_gp
 				databus  : inout std_logic_vector(7 downto 0);
 				switches : out std_logic_vector(7 downto 0);
 				temp_l	: out std_logic_vector(3 downto 0);
-				temp_h	: out std_logic_vector(3 downto 0);
-				CS			: in std_logic 
+				temp_h	: out std_logic_vector(3 downto 0)
 		  );
 END COMPONENT;
 
@@ -58,7 +57,7 @@ SIGNAL CS_ram_gp : std_logic;
 BEGIN
 
 periph_ram	: ram_peripheals  PORT MAP (Clk,Reset,write_en,oe,address,databus,switches,temp_l,temp_h,CS_ram_periph);
-gp_ram		: ram_gp	 PORT MAP (Clk,write_en,oe,address,databus,switches,temp_l,temp_h,CS_ram_gp);
+gp_ram		: ram_gp	 PORT MAP (Clk,write_en,oe,address,databus,switches,temp_l,temp_h);
 
 
 -------------------------------------------------------------------------

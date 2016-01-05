@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_isim_beh.exe" -prj "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_beh.prj" "work.ram" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_isim_beh.exe" -prj "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_beh.prj" "work.RS232top_TB" 
