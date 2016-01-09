@@ -1,0 +1,2 @@
+vhdl work "netgen/par/NEXYS_TOP_timesim.vhd"
+vhdl work "tb_RS232_DMA_RAM.vhd"

@@ -1,61 +1,22 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_isim_beh.exe -prj C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_beh.prj work.RS232top_TB 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_isim_beh.exe -prj C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_beh.prj work.testbench 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/../../RS_232_GUAY/ipcore_dir/FIFO.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/../../RS_232_GUAY/ipcore_dir/clk_50.vhd" into library work
 Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PIC_pkg.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ShiftRegister.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/rs232_tx.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232_RX.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_gp.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RAM.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/dma.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232_test.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd" into library work
+Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ALU.vhd" into library work
+Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_ALU.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
-Compiling package rs232_test
-Compiling package std_logic_arith
-Compiling package std_logic_unsigned
-Compiling package vcomponents
-Compiling package textio
-Compiling package vital_timing
-Compiling package vital_primitives
-Compiling package vpkg
-Compiling architecture ibufg_v of entity IBUFG [\IBUFG("DONT_CARE","0",true,"DEF...]
-Compiling architecture dcm_sp_clock_divide_by_2_v of entity dcm_sp_clock_divide_by_2 [dcm_sp_clock_divide_by_2_default]
-Compiling architecture dcm_sp_maximum_period_check_v of entity dcm_sp_maximum_period_check [\dcm_sp_maximum_period_check("*"...]
-Compiling architecture dcm_sp_maximum_period_check_v of entity dcm_sp_maximum_period_check [\dcm_sp_maximum_period_check("*"...]
-Compiling architecture dcm_sp_clock_lost_v of entity dcm_sp_clock_lost [dcm_sp_clock_lost_default]
-Compiling architecture dcm_sp_v of entity DCM_SP [\DCM_SP(true,"*",true,false,5.0,...]
-Compiling architecture bufg_v of entity BUFG [bufg_default]
-Compiling architecture xilinx of entity clk_50 [clk_50_default]
-Compiling architecture behavioral of entity rs232_tx [rs232_tx_default]
-Compiling architecture behavioral of entity RS232_RX [rs232_rx_default]
-Compiling architecture behavioral of entity ShiftRegister [shiftregister_default]
-Compiling architecture behavioral of entity fifo_generator_v7_2_bhv_ss [\fifo_generator_v7_2_bhv_ss(4,8,...]
-Compiling architecture behavioral of entity fifo_generator_v7_2_conv [\fifo_generator_v7_2_conv(1,0,4,...]
-Compiling architecture behavioral of entity fifo_generator_v7_2 [\fifo_generator_v7_2(1,0,4,"Blan...]
-Compiling architecture fifo_a of entity FIFO [fifo_default]
-Compiling architecture rtl of entity RS232top [rs232top_default]
-Compiling architecture behavioral of entity dma [dma_default]
 Compiling package pic_pkg
-Compiling architecture behavioral of entity ram_peripheals [ram_peripheals_default]
-Compiling architecture behavioral of entity ram_gp [ram_gp_default]
-Compiling architecture behavior of entity ram [ram_default]
-Compiling architecture behavioral of entity NEXYS_TOP [nexys_top_default]
-Compiling architecture testbench of entity rs232top_tb
+Compiling architecture behavioral of entity ALU [alu_default]
+Compiling architecture behavior of entity testbench
 Time Resolution for simulation is 1ps.
-Waiting for 21 sub-compilation(s) to finish...
-Compiled 55 VHDL Units
-Built simulation executable C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_isim_beh.exe
-Fuse Memory Usage: 59300 KB
-Fuse CPU Usage: 1530 ms
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 7 VHDL Units
+Built simulation executable C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_isim_beh.exe
+Fuse Memory Usage: 35332 KB
+Fuse CPU Usage: 655 ms

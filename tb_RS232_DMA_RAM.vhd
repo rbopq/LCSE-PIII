@@ -61,8 +61,11 @@ begin
   BEGIN
 	  
 	  Reset <= '1', '0' after 75 ns;
-	  DMA_ACK<='0', '1' after 350 us;
-     
+	  DMA_ACK<='0', '1' after 350000 ns; 
+						 --'0' after 350120 ns;
+  	  Send<='0', '1' after 400000 ns, 
+					 '0' after 400100 ns; 
+
 	  --Data_in <= "11010101", "10100111" after 90000 ns, "01001000" after 180000 ns ;
 	  
 --	  Valid_D <= 	'1', '0' after 10 us,
@@ -79,6 +82,7 @@ begin
 		wait for 20us;
 		Transmit(RD, "00110101");
 		wait for 20us;
+		
 		
 
 --     RD <= '1',

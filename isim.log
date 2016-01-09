@@ -1,5 +1,5 @@
 ISim log file
-Running: C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\RS232top_TB_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_isim_beh.wdb 
+Running: C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_isim_beh.wdb 
 ISim P.20131013 (signature 0x7708f090)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,11 +11,35 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+at 420 ns(1), Instance /testbench/alu_comp/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 # restart
-# run 600us
+# run 1.5 us
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+at 420 ns(1), Instance /testbench/alu_comp/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 # restart
-# run 600us
+# run 2 us
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+at 420 ns(1), Instance /testbench/alu_comp/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+# restart
+# run all
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+at 420 ns(1), Instance /testbench/alu_comp/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Stopped at time : 25746840 ns : File "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ALU.vhd" Line 172
+# restart
+# run 3 us
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+at 420 ns(1), Instance /testbench/alu_comp/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+# restart
+# run 2 us
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+at 420 ns(1), Instance /testbench/alu_comp/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+# restart
+# run 2 us
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+at 420 ns(1), Instance /testbench/alu_comp/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
