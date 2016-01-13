@@ -1,0 +1,5 @@
+vhdl work "PIC_pkg.vhd"
+vhdl work "ROM.vhd"
+vhdl work "main_control.vhd"
+vhdl work "ALU.vhd"
+vhdl work "bloque_control.vhd"

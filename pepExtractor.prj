@@ -1,1 +1,5 @@
 work	"ALU.vhd"
+work	"PIC_pkg.vhd"
+work	"ROM.vhd"
+work	"bloque_control.vhd"
+work	"main_control.vhd"

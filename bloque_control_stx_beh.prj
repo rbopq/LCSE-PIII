@@ -1,0 +1,5 @@
+vhdl isim_temp "PIC_pkg.vhd"
+vhdl isim_temp "ROM.vhd"
+vhdl isim_temp "main_control.vhd"
+vhdl isim_temp "ALU.vhd"
+vhdl isim_temp "bloque_control.vhd"

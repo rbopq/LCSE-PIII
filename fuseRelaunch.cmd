@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_isim_beh.exe" -prj "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_beh.prj" "work.testbench" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control_isim_beh.exe" -prj "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control_beh.prj" "work.tb_bloque_control" 

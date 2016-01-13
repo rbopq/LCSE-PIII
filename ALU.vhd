@@ -36,7 +36,7 @@ entity ALU is
            Clk : in  STD_LOGIC;
            Alu_op : in alu_op;
            Databus : inout  STD_LOGIC_VECTOR (7 downto 0);
-           Index_Reg : out  STD_LOGIC;
+           Index_Reg : out  STD_LOGIC_VECTOR (7 downto 0);
            FlagZ : out  STD_LOGIC;
            FlagC : out  STD_LOGIC;
            FlagN : out  STD_LOGIC;
@@ -45,62 +45,74 @@ end ALU;
 
 architecture Behavioral of ALU is
 
-signal u_a, u_b, u_acc, u_index: unsigned(7 downto 0);
-signal u_flags : unsigned(3 downto 0);
-
-signal reg_acc, reg_index :std_logic_vector(7 downto 0);
-signal reg_flags : std_logic_vector(3 downto 0);
+signal Databus_temp, reg_a, reg_b, reg_acc :std_logic_vector(7 downto 0);
+signal Databus_using : std_logic;
 
 begin
 
-process(Alu_op)	
+registro: process(Reset, Clk)
 begin
-	case Alu_op is
+	if Reset = '0' then
+		reg_acc <= (others =>'0');
+		Index_reg <= (others =>'0');
+		reg_a <= (others =>'0');
+		reg_b <= (others =>'0');
+		FlagZ <='0';
+      FlagC <='0';
+      FlagN <='0';
+      FlagE <='0';
+		Databus_using <='0';
+	elsif Clk'event and Clk = '1' then
+		Databus_using <='0';
+		
+		case Alu_op is
 	
 		when op_add =>
-			u_acc <= u_a + u_b;		
+			reg_acc <= std_logic_vector(unsigned(reg_a) + unsigned(reg_b));		
 			
-			if u_acc =0 then
+			if reg_acc = X"00" then
 				FlagZ<= '1';
 			else 
 				FlagZ<= '0';
 			end if; 
 		
 		when op_sub =>
-			u_acc <= u_a - u_b;
+			reg_acc <= std_logic_vector(unsigned(reg_a) - unsigned(reg_b));		
 		
-			if u_acc =0 then
+			if reg_acc = X"00" then
 				FlagZ<= '1';
 			else
 				FlagZ<='0';
 			end if;	
 		
 		when op_shiftl =>
-			u_acc <=u_acc sll 1;
+			reg_acc <=std_logic_vector(unsigned(reg_acc) sll 1);
+		
 		when op_shiftr =>
-			u_acc<=u_acc srl 1;
+			reg_acc <=std_logic_vector(unsigned(reg_acc) srl 1);
+		
 		when op_and =>
-			u_acc <= u_a and u_b;
+			reg_acc <= std_logic_vector(unsigned(reg_a) and unsigned(reg_b));
 
-			if u_acc =0 then
+			if reg_acc = X"00" then
 				FlagZ<= '1';
 			else
 				FlagZ<='0';
 			end if;	
 			
 		when op_or =>
-			u_acc <= u_a or u_b;			
+			reg_acc <= std_logic_vector(unsigned(reg_a) or unsigned(reg_b));		
 		
-			if u_acc =0 then
+			if reg_acc = X"00" then
 				FlagZ<= '1';
 			else
 				FlagZ<='0';
 			end if;	
 			
 		when op_xor =>
-			u_acc <= u_a xor u_b;			
+			reg_acc <= std_logic_vector(unsigned(reg_a) xor unsigned(reg_b));		
 		
-			if u_acc =0 then
+			if reg_acc = X"00" then
 				FlagZ<= '1';
 			else
 				FlagZ<='0';
@@ -108,7 +120,7 @@ begin
 		
 		when op_cmpe =>
 			
-			if u_a = u_b then
+			if unsigned(reg_a) = unsigned(reg_b) then
 				FlagZ<= '1';
 			else
 				FlagZ<='0';
@@ -116,7 +128,7 @@ begin
 		
 		when op_cmpl =>
 			
-			if u_a < u_b then
+			if unsigned(reg_a) < unsigned(reg_b) then
 				FlagZ<= '1';
 			else
 				FlagZ<='0';
@@ -124,7 +136,7 @@ begin
 		
 		when op_cmpg =>
 		
-			if u_a > u_b then
+			if unsigned(reg_a) > unsigned(reg_b) then
 				FlagZ<= '1';
 			else
 				FlagZ<='0';
@@ -132,48 +144,53 @@ begin
 			
 		when op_ascii2bin =>
 			
-			if u_a >= 48 and u_a <=57 then
-				u_acc<= u_a - 48;
+			if unsigned(reg_a) >= 48 and unsigned(reg_a) <=57 then
+				reg_acc<= std_logic_vector(unsigned(reg_a) - 48);
 			else
-				u_acc<="11111111";
+				reg_acc<=X"FF";
 			end if;
 		
 		when op_bin2ascii =>
 			
-			if u_a >= 0 and u_a <=9 then
-				u_acc<= u_a + 48;
+			if unsigned(reg_a) >= 0 and unsigned(reg_a) <=9 then
+				reg_acc<= std_logic_vector(unsigned(reg_a) + 48);
 			else
-				u_acc<="11111111";
+				reg_acc<=X"FF";
 			end if;
 			
 		when op_lda =>
-			u_a<=unsigned(Databus);
+			reg_a <=Databus;
+			
 		when op_ldb =>
-			u_b<=unsigned(Databus);
+			reg_b <=Databus;
+		
 		when op_ldacc =>
-			u_acc<=unsigned(Databus);
+			reg_acc <=Databus;
+		
 		when op_ldid =>
-			u_index<=unsigned(Databus);
-		when others =>
-			Databus <= (others => 'Z');
+			Index_reg <=Databus;
+
+		when op_mvacc2id =>
+			Index_reg <=reg_acc;
+
+		when op_mvacc2a =>
+			reg_a <=reg_acc;
+
+		when op_mvacc2b =>
+			reg_b <=reg_acc;			
+
+		when op_oeacc =>
+			Databus_temp <= reg_acc;
+			Databus_using <= '1';
+		
+		when others =>	
+			--Databus <= (others => 'Z');
 
 	end case;
-end process;
-
-registro: process(Reset, Clk)
-begin
-	if Reset = '0' then
---		reg_a <= (others =>'0');
---		reg_b <= (others =>'0');
-		reg_acc <= (others =>'0');
-		reg_index <= (others =>'0');	
-		reg_flags <= (others =>'0');
-	elsif Clk'event and Clk = '1' then
-		reg_acc<=std_logic_vector(u_acc);
-		reg_index<=std_logic_vector(u_index);
-		reg_flags<=std_logic_vector(u_flags);
 	end if; 
 end process; 
+
+Databus <= Databus_temp when Databus_using='1' else (others => 'Z');
 
 end Behavioral;
 

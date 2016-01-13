@@ -1,22 +1,30 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_isim_beh.exe -prj C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_beh.prj work.testbench 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control_isim_beh.exe -prj C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control_beh.prj work.tb_bloque_control 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
 Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PIC_pkg.vhd" into library work
+Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ROM.vhd" into library work
+Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/main_control.vhd" into library work
 Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ALU.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_ALU.vhd" into library work
+Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.vhd" into library work
+Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
-Compiling package numeric_std
 Compiling package pic_pkg
+Compiling package numeric_std
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture behavioral of entity MAIN_CONTROL [main_control_default]
 Compiling architecture behavioral of entity ALU [alu_default]
-Compiling architecture behavior of entity testbench
+Compiling architecture automatic of entity ROM [rom_default]
+Compiling architecture behavioral of entity bloque_control [bloque_control_default]
+Compiling architecture behavior of entity tb_bloque_control
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 7 VHDL Units
-Built simulation executable C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/testbench_isim_beh.exe
-Fuse Memory Usage: 35332 KB
-Fuse CPU Usage: 655 ms
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 15 VHDL Units
+Built simulation executable C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control_isim_beh.exe
+Fuse Memory Usage: 37196 KB
+Fuse CPU Usage: 921 ms

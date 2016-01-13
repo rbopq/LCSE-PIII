@@ -1,0 +1,757 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: bloque_control.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "bloque_control.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "bloque_control"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : bloque_control
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\PIC_pkg.vhd" into library work
+Parsing package <PIC_pkg>.
+Parsing package body <PIC_pkg>.
+Parsing VHDL file "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\ROM.vhd" into library work
+Parsing entity <ROM>.
+Parsing architecture <AUTOMATIC> of entity <rom>.
+Parsing VHDL file "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" into library work
+Parsing entity <MAIN_CONTROL>.
+Parsing architecture <Behavioral> of entity <main_control>.
+Parsing VHDL file "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\ALU.vhd" into library work
+Parsing entity <ALU>.
+Parsing architecture <Behavioral> of entity <alu>.
+Parsing VHDL file "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\bloque_control.vhd" into library work
+Parsing entity <bloque_control>.
+Parsing architecture <Behavioral> of entity <bloque_control>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <bloque_control> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <MAIN_CONTROL> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 95: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 99: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 103: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 105: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 133: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 135: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 137: flagz should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 138: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 143: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 145: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 147: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 157: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 159: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 163: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 167: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 171: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 177: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 179: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 183: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 187: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 191: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 198: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 200: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 204: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 208: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 212: reg_operand should be on the sensitivity list of the process
+INFO:HDLCompiler:679 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 217. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 220: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 222: rom_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 224: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 229: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 234: index_reg should be on the sensitivity list of the process
+INFO:HDLCompiler:679 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 242. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 247. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:1127 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 82: Assignment to reg_instruct ignored, since the identifier is never used
+
+Elaborating entity <ALU> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <ROM> (architecture <AUTOMATIC>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <bloque_control>.
+    Related source file is "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\bloque_control.vhd".
+    Summary:
+	no macro.
+Unit <bloque_control> synthesized.
+
+Synthesizing Unit <MAIN_CONTROL>.
+    Related source file is "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd".
+WARNING:Xst:647 - Input <ROM_Data<11:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <FlagZ> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <FlagC> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <FlagN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <FlagE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <ROM_Addr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 3-bit register for signal <CurrentState>.
+    Found finite state machine <FSM_0> for signal <CurrentState>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 8                                              |
+    | Clock              | Clk (rising_edge)                              |
+    | Reset              | Reset (negative)                               |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | ini                                            |
+    | Power Up State     | ini                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit adder for signal <Index_Reg[7]_Reg_operand[7]_add_21_OUT> created at line 234.
+    Found 1-bit 4-to-1 multiplexer for signal <ROM_Data[7]_GND_22_o_Mux_109_o> created at line 103.
+    Found 1-bit 3-to-1 multiplexer for signal <ROM_Data[4]_ROM_Data[2]_wide_mux_20_OUT<7>> created at line 143.
+    Found 1-bit 3-to-1 multiplexer for signal <ROM_Data[4]_ROM_Data[2]_wide_mux_20_OUT<6>> created at line 143.
+    Found 1-bit 3-to-1 multiplexer for signal <ROM_Data[4]_ROM_Data[2]_wide_mux_20_OUT<5>> created at line 143.
+    Found 1-bit 3-to-1 multiplexer for signal <ROM_Data[4]_ROM_Data[2]_wide_mux_20_OUT<4>> created at line 143.
+    Found 1-bit 3-to-1 multiplexer for signal <ROM_Data[4]_ROM_Data[2]_wide_mux_20_OUT<3>> created at line 143.
+    Found 1-bit 3-to-1 multiplexer for signal <ROM_Data[4]_ROM_Data[2]_wide_mux_20_OUT<2>> created at line 143.
+    Found 1-bit 3-to-1 multiplexer for signal <ROM_Data[4]_ROM_Data[2]_wide_mux_20_OUT<1>> created at line 143.
+    Found 1-bit 3-to-1 multiplexer for signal <ROM_Data[4]_ROM_Data[2]_wide_mux_20_OUT<0>> created at line 143.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_using>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <ALU_op<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <ALU_op<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <ALU_op<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <ALU_op<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <ALU_op<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_temp<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_temp<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_temp<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_temp<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_temp<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_temp<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_temp<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Databus_temp<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Addr_temp<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Addr_temp<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Addr_temp<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Addr_temp<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Addr_temp<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Addr_temp<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Addr_temp<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Addr_temp<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <RAM_Write_temp>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <IS_stall>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 1-bit tristate buffer for signal <Databus<7>> created at line 324
+    Found 1-bit tristate buffer for signal <Databus<6>> created at line 324
+    Found 1-bit tristate buffer for signal <Databus<5>> created at line 324
+    Found 1-bit tristate buffer for signal <Databus<4>> created at line 324
+    Found 1-bit tristate buffer for signal <Databus<3>> created at line 324
+    Found 1-bit tristate buffer for signal <Databus<2>> created at line 324
+    Found 1-bit tristate buffer for signal <Databus<1>> created at line 324
+    Found 1-bit tristate buffer for signal <Databus<0>> created at line 324
+    Found 1-bit tristate buffer for signal <RAM_Addr<7>> created at line 325
+    Found 1-bit tristate buffer for signal <RAM_Addr<6>> created at line 325
+    Found 1-bit tristate buffer for signal <RAM_Addr<5>> created at line 325
+    Found 1-bit tristate buffer for signal <RAM_Addr<4>> created at line 325
+    Found 1-bit tristate buffer for signal <RAM_Addr<3>> created at line 325
+    Found 1-bit tristate buffer for signal <RAM_Addr<2>> created at line 325
+    Found 1-bit tristate buffer for signal <RAM_Addr<1>> created at line 325
+    Found 1-bit tristate buffer for signal <RAM_Addr<0>> created at line 325
+    Found 1-bit tristate buffer for signal <RAM_CS> created at line 326
+    Found 1-bit tristate buffer for signal <RAM_OE> created at line 327
+    Found 1-bit tristate buffer for signal <RAM_Write> created at line 328
+WARNING:Xst:737 - Found 1-bit latch for signal <DMA_ACK>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  33 Latch(s).
+	inferred 115 Multiplexer(s).
+	inferred  19 Tristate(s).
+	inferred   1 Finite State Machine(s).
+Unit <MAIN_CONTROL> synthesized.
+
+Synthesizing Unit <ALU>.
+    Related source file is "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\ALU.vhd".
+    Found 1-bit register for signal <FlagZ>.
+    Found 1-bit register for signal <Databus_using>.
+    Found 8-bit register for signal <Index_Reg>.
+    Found 8-bit register for signal <reg_a>.
+    Found 8-bit register for signal <reg_b>.
+    Found 8-bit register for signal <reg_acc>.
+    Found 8-bit register for signal <Databus_temp>.
+    Found 8-bit adder for signal <reg_a[7]_reg_b[7]_add_0_OUT> created at line 71.
+    Found 8-bit adder for signal <reg_a[7]_GND_76_o_add_18_OUT> created at line 1241.
+    Found 8-bit subtractor for signal <GND_76_o_GND_76_o_sub_3_OUT<7:0>> created at line 80.
+    Found 8-bit subtractor for signal <GND_76_o_GND_76_o_sub_16_OUT<7:0>> created at line 1308.
+    Found 32x1-bit Read Only RAM for signal <Alu_op[4]_GND_76_o_Mux_26_o>
+    Found 1-bit tristate buffer for signal <Databus<7>> created at line 193
+    Found 1-bit tristate buffer for signal <Databus<6>> created at line 193
+    Found 1-bit tristate buffer for signal <Databus<5>> created at line 193
+    Found 1-bit tristate buffer for signal <Databus<4>> created at line 193
+    Found 1-bit tristate buffer for signal <Databus<3>> created at line 193
+    Found 1-bit tristate buffer for signal <Databus<2>> created at line 193
+    Found 1-bit tristate buffer for signal <Databus<1>> created at line 193
+    Found 1-bit tristate buffer for signal <Databus<0>> created at line 193
+    Found 8-bit comparator equal for signal <reg_a[7]_reg_b[7]_equal_11_o> created at line 123
+    Found 8-bit comparator greater for signal <reg_a[7]_reg_b[7]_LessThan_12_o> created at line 131
+    Found 8-bit comparator greater for signal <reg_b[7]_reg_a[7]_LessThan_13_o> created at line 139
+    Found 8-bit comparator lessequal for signal <n0010> created at line 147
+    Found 8-bit comparator lessequal for signal <n0012> created at line 147
+    Found 8-bit comparator lessequal for signal <n0017> created at line 155
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  42 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+	inferred  29 Multiplexer(s).
+	inferred   8 Tristate(s).
+Unit <ALU> synthesized.
+
+Synthesizing Unit <ROM>.
+    Related source file is "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\ROM.vhd".
+    Found 256x12-bit Read Only RAM for signal <_n0680>
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Multiplexer(s).
+Unit <ROM> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 256x12-bit single-port Read Only RAM                  : 1
+ 32x1-bit single-port Read Only RAM                    : 1
+# Adders/Subtractors                                   : 2
+ 8-bit adder                                           : 1
+ 8-bit addsub                                          : 1
+# Registers                                            : 7
+ 1-bit register                                        : 2
+ 8-bit register                                        : 5
+# Latches                                              : 33
+ 1-bit latch                                           : 33
+# Comparators                                          : 6
+ 8-bit comparator equal                                : 1
+ 8-bit comparator greater                              : 2
+ 8-bit comparator lessequal                            : 3
+# Multiplexers                                         : 145
+ 1-bit 2-to-1 multiplexer                              : 114
+ 1-bit 3-to-1 multiplexer                              : 8
+ 1-bit 4-to-1 multiplexer                              : 1
+ 12-bit 2-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 21
+# Tristates                                            : 27
+ 1-bit tristate buffer                                 : 27
+# FSMs                                                 : 1
+# Xors                                                 : 1
+ 8-bit xor2                                            : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <IS_stall> (without init value) has a constant value of 1 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAM_Write_temp> (without init value) has a constant value of 1 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+
+Synthesizing (advanced) Unit <ALU>.
+INFO:Xst:3217 - HDL ADVISOR - Register <Databus_using> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_Alu_op[4]_GND_76_o_Mux_26_o> for implementation on block RAM resources if you made this reset synchronous instead.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 1-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <Alu_op>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <ALU> synthesized (advanced).
+
+Synthesizing (advanced) Unit <ROM>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0680> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 12-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <Program_counter<7:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <ROM> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 256x12-bit single-port distributed Read Only RAM      : 1
+ 32x1-bit single-port distributed Read Only RAM        : 1
+# Adders/Subtractors                                   : 2
+ 8-bit adder                                           : 1
+ 8-bit addsub                                          : 1
+# Registers                                            : 42
+ Flip-Flops                                            : 42
+# Comparators                                          : 6
+ 8-bit comparator equal                                : 1
+ 8-bit comparator greater                              : 2
+ 8-bit comparator lessequal                            : 3
+# Multiplexers                                         : 145
+ 1-bit 2-to-1 multiplexer                              : 114
+ 1-bit 3-to-1 multiplexer                              : 8
+ 1-bit 4-to-1 multiplexer                              : 1
+ 12-bit 2-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 21
+# FSMs                                                 : 1
+# Xors                                                 : 1
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <IS_stall> (without init value) has a constant value of 1 in block <MAIN_CONTROL>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAM_Write_temp> (without init value) has a constant value of 1 in block <MAIN_CONTROL>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <controlador/FSM_0> on signal <CurrentState[1:3]> with user encoding.
+--------------------------
+ State        | Encoding
+--------------------------
+ ini          | 000
+ sleep        | 001
+ get_instruct | 010
+ get_operand  | 011
+ execute      | 100
+ stall        | 101
+--------------------------
+WARNING:Xst:1426 - The value init of the FF/Latch controlador/ALU_op_0 hinder the constant cleaning in the block bloque_control.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1710 - FF/Latch <controlador/Reg_operand_2> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/Reg_operand_1> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/Reg_operand_0> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/Reg_operand_3> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/Reg_operand_4> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/Reg_operand_5> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/Reg_operand_7> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/Reg_operand_6> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <controlador/ALU_op_3> has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <controlador/ALU_op_1> has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <controlador/ALU_op_2> has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/RAM_Addr_temp_5> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/RAM_Addr_temp_0> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/RAM_Addr_temp_1> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/RAM_Addr_temp_3> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/RAM_Addr_temp_4> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/RAM_Addr_temp_2> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/RAM_Addr_temp_6> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <controlador/RAM_Addr_temp_7> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <controlador/ALU_op_4> has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_acc_7> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_acc_6> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_acc_5> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_acc_4> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_acc_3> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_acc_2> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_acc_1> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_acc_0> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_b_7> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Databus_using> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_b_0> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_b_1> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_b_2> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_b_3> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_b_4> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_b_5> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/reg_b_6> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <controlador/Databus_temp_7> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <controlador/Databus_temp_6> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <controlador/Databus_temp_5> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <controlador/Databus_temp_3> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <controlador/Databus_temp_4> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <controlador/Databus_temp_0> (without init value) has a constant value of 1 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <controlador/Databus_temp_2> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <controlador/Databus_temp_1> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Index_Reg_7> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Index_Reg_6> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Index_Reg_5> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Index_Reg_4> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Index_Reg_3> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Index_Reg_2> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Index_Reg_1> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Index_Reg_0> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <alu_comp/Databus_temp_1> (without init value) has a constant value of 0 in block <bloque_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <alu_comp/FlagZ> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <controlador/ALU_op_0> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/reg_a_7> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/reg_a_6> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/reg_a_5> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/reg_a_4> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/reg_a_3> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/reg_a_2> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/reg_a_1> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/reg_a_0> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/Databus_temp_7> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/Databus_temp_6> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/Databus_temp_5> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/Databus_temp_4> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/Databus_temp_3> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/Databus_temp_2> of sequential type is unconnected in block <bloque_control>.
+WARNING:Xst:2677 - Node <alu_comp/Databus_temp_0> of sequential type is unconnected in block <bloque_control>.
+
+Optimizing unit <bloque_control> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block bloque_control, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 3
+ Flip-Flops                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : bloque_control.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 11
+#      GND                         : 1
+#      INV                         : 2
+#      LUT2                        : 2
+#      LUT3                        : 2
+#      LUT4                        : 2
+#      LUT5                        : 1
+#      VCC                         : 1
+# FlipFlops/Latches                : 5
+#      FDC                         : 3
+#      LD                          : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 23
+#      IBUF                        : 3
+#      OBUF                        : 1
+#      OBUFT                       : 19
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:               4  out of  18224     0%  
+ Number of Slice LUTs:                    9  out of   9112     0%  
+    Number used as Logic:                 9  out of   9112     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:      9
+   Number with an unused Flip Flop:       5  out of      9    55%  
+   Number with an unused LUT:             0  out of      9     0%  
+   Number of fully used LUT-FF pairs:     4  out of      9    44%  
+   Number of unique control sets:         3
+
+IO Utilization: 
+ Number of IOs:                          25
+ Number of bonded IOBs:                  24  out of    232    10%  
+    IOB Flip Flops/Latches:               1
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------------------------------------------------------------------------+-----------------------------------+-------+
+Clock Signal                                                                                         | Clock buffer(FF name)             | Load  |
+-----------------------------------------------------------------------------------------------------+-----------------------------------+-------+
+Clk                                                                                                  | BUFGP                             | 3     |
+controlador/CurrentState[2]_PWR_13_o_Mux_66_o(controlador/Mmux_CurrentState[2]_PWR_13_o_Mux_66_o11:O)| NONE(*)(controlador/Databus_using)| 1     |
+controlador/CurrentState[2]_PWR_7_o_Mux_54_o(controlador/CurrentState__n0672<1>1:O)                  | NONE(*)(controlador/DMA_ACK)      | 1     |
+-----------------------------------------------------------------------------------------------------+-----------------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 1.727ns (Maximum Frequency: 579.123MHz)
+   Minimum input arrival time before clock: 3.087ns
+   Maximum output required time after clock: 4.881ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 1.727ns (frequency: 579.123MHz)
+  Total number of paths / destination ports: 9 / 3
+-------------------------------------------------------------------------
+Delay:               1.727ns (Levels of Logic = 1)
+  Source:            controlador/CurrentState_FSM_FFd2 (FF)
+  Destination:       controlador/CurrentState_FSM_FFd2 (FF)
+  Source Clock:      Clk rising
+  Destination Clock: Clk rising
+
+  Data Path: controlador/CurrentState_FSM_FFd2 to controlador/CurrentState_FSM_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              6   0.447   0.973  controlador/CurrentState_FSM_FFd2 (controlador/CurrentState_FSM_FFd2)
+     LUT5:I2->O            1   0.205   0.000  controlador/CurrentState_FSM_FFd3-In1 (controlador/CurrentState_FSM_FFd3-In)
+     FDC:D                     0.102          controlador/CurrentState_FSM_FFd3
+    ----------------------------------------
+    Total                      1.727ns (0.754ns logic, 0.973ns route)
+                                       (43.7% logic, 56.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 7 / 6
+-------------------------------------------------------------------------
+Offset:              3.087ns (Levels of Logic = 2)
+  Source:            Reset (PAD)
+  Destination:       controlador/CurrentState_FSM_FFd2 (FF)
+  Destination Clock: Clk rising
+
+  Data Path: Reset to controlador/CurrentState_FSM_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.579  Reset_IBUF (Reset_IBUF)
+     INV:I->O              3   0.206   0.650  controlador/Reset_inv1_INV_0 (controlador/Reset_inv)
+     FDC:CLR                   0.430          controlador/CurrentState_FSM_FFd1
+    ----------------------------------------
+    Total                      3.087ns (1.858ns logic, 1.229ns route)
+                                       (60.2% logic, 39.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'controlador/CurrentState[2]_PWR_13_o_Mux_66_o'
+  Total number of paths / destination ports: 17 / 17
+-------------------------------------------------------------------------
+Offset:              4.881ns (Levels of Logic = 2)
+  Source:            controlador/Databus_using (LATCH)
+  Destination:       RAM_Addr<7> (PAD)
+  Source Clock:      controlador/CurrentState[2]_PWR_13_o_Mux_66_o falling
+
+  Data Path: controlador/Databus_using to RAM_Addr<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.498   0.579  controlador/Databus_using (controlador/Databus_using)
+     INV:I->O             17   0.206   1.027  controlador/Databus_using_inv1_INV_0 (controlador/Databus_using_inv)
+     OBUFT:T->O                2.571          Databus_7_OBUFT (Databus<7>)
+    ----------------------------------------
+    Total                      4.881ns (3.275ns logic, 1.606ns route)
+                                       (67.1% logic, 32.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'controlador/CurrentState[2]_PWR_7_o_Mux_54_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.648ns (Levels of Logic = 1)
+  Source:            controlador/DMA_ACK (LATCH)
+  Destination:       DMA_ACK (PAD)
+  Source Clock:      controlador/CurrentState[2]_PWR_7_o_Mux_54_o falling
+
+  Data Path: controlador/DMA_ACK to DMA_ACK
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.498   0.579  controlador/DMA_ACK (controlador/DMA_ACK)
+     OBUF:I->O                 2.571          DMA_ACK_OBUF (DMA_ACK)
+    ----------------------------------------
+    Total                      3.648ns (3.069ns logic, 0.579ns route)
+                                       (84.1% logic, 15.9% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock Clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clk            |    1.727|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock controlador/CurrentState[2]_PWR_13_o_Mux_66_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clk            |         |         |    1.536|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock controlador/CurrentState[2]_PWR_7_o_Mux_54_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clk            |         |         |    1.662|         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.30 secs
+ 
+--> 
+
+Total memory usage is 295052 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  147 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+
