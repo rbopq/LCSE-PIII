@@ -24,10 +24,7 @@ PORT (
    write_en : in    std_logic; -- Habilitación de escritura
    oe       : in    std_logic; -- Habilitación de lectura
    address  : in    std_logic_vector(7 downto 0); -- Bus de direcciones
-   databus  : inout std_logic_vector(7 downto 0);
-	cs 		: in std_logic
-	); -- Bus de datos
-
+   databus  : inout std_logic_vector(7 downto 0)); -- Bus de datos
 end ram_gp;
 
 architecture Behavioral of ram_gp is
@@ -41,19 +38,14 @@ begin
 -------------------------------------------------------------------------
 gp_ram : process (Clk)  -- no reset
 begin
-	databus<=(others =>'Z');
 	if clk'event and clk = '1' then
-		if CS ='1' then 
-			if write_en = '1' then
-				contents_ram(to_integer(unsigned(address))) <= databus;
-			elsif oe='1' then
-				databus<=contents_ram(to_integer(unsigned(address)));
-			end if;	
-		end if;
-	end if;	
+		if write_en = '1' then
+			contents_ram(to_integer(unsigned(address))) <= databus;
+		end if;	
+	end if;
 end process;
 
---databus <= contents_ram(to_integer(unsigned(address))) when oe = '1' else (others => 'Z');
+databus <= contents_ram(to_integer(unsigned(address))) when oe = '1' else (others => 'Z');
 -------------------------------------------------------------------------
 
 end Behavioral;

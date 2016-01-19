@@ -43,8 +43,7 @@ COMPONENT ram_peripheals
 				databus  : inout std_logic_vector(7 downto 0);
 				switches : out std_logic_vector(7 downto 0);
 				temp_l	: out std_logic_vector(3 downto 0);
-				temp_h	: out std_logic_vector(3 downto 0);
-				cs	: in std_logic--;
+				temp_h	: out std_logic_vector(3 downto 0)--;
 		  );
 END COMPONENT;
 
@@ -54,26 +53,25 @@ COMPONENT ram_gp
 				write_en : in    std_logic;
 				oe       : in    std_logic;
 				address  : in    std_logic_vector(7 downto 0);
-				databus  : inout std_logic_vector(7 downto 0);
-				cs		: in std_logic
+				databus  : inout std_logic_vector(7 downto 0)
 		  );
 END COMPONENT;
 
 -- PERIPHEALS RAM
 signal write_en_per : std_logic;
 signal oe_per : std_logic;
-signal address_per : std_logic_vector(7 downto 0);
+signal address_per : std_logic_vector(5 downto 0);
 signal databus_per : std_logic_vector(7 downto 0);
---signal switches_per : std_logic_vector(7 downto 0);
---signal temp_l_per	: std_logic_vector(3 downto 0);
---signal temp_h_per : std_logic_vector(3 downto 0);
-signal cs_per: std_logic;
+signal switches_per : std_logic_vector(7 downto 0);
+signal temp_l_per	: std_logic_vector(3 downto 0);
+signal temp_h_per : std_logic_vector(3 downto 0);
+
 -- GP RAM
 signal write_en_gp : std_logic;
 signal oe_gp : std_logic;
 signal address_gp : std_logic_vector(7 downto 0);
 signal databus_gp : std_logic_vector(7 downto 0);
-signal cs_gp: std_logic;
+
 
 
 BEGIN
@@ -84,23 +82,19 @@ periph_ram:ram_peripheals port map(
 		Clk => Clk,
 		write_en =>Write_en,
 		oe =>OE,
-		address=>Address_per, 
-		databus=>databus_per, 
+		address=>Address, 
+		databus=>databus, 
 		switches=>switches, 
 		temp_l=>temp_l,	
-		temp_h=>temp_h,
-		cs=>cs_per
-		);
+		temp_h=>temp_h);
 		
 gp_ram:ram_gp port map(
 		--Clk => clk_nexys,
 		Clk => Clk,
 		write_en =>Write_en,
 		oe =>OE,
-		address=>Address_gp, 
-		databus=>databus_per,
-		cs=>cs_gp
-		);	
+		address=>Address, 
+		databus=>databus);	
 		
 --periph_ram	: ram_peripheals  PORT MAP (Clk,Reset,write_en_per,oe_per,address_per,databus_per,switches,temp_l,temp_h);--CS_ram_periph);
 --gp_ram		: ram_gp	 PORT MAP (Clk,write_en_gp,oe_gp,address_gp,databus_gp);
@@ -109,50 +103,48 @@ gp_ram:ram_gp port map(
 -------------------------------------------------------------------------
 -- Proceso para habilitar o deshabilitar segmentos de RAM
 ---------------------------------------------------------------------------
-cs_select: process(address, databus, databus_gp, databus_per)  -- no reset
-begin
-	databus		<=(others=>'Z');
-	databus_gp	<=(others=>'Z');
-	databus_per	<=(others=>'Z');
-	
-	oe_per<='Z';
-	oe_gp<='Z';
-	
-	write_en_gp<='Z';
-	write_en_per<='Z';
-	
-	address_gp<=(others=>'Z');
-	address_per<=(others=>'Z');
-
-	cs_per<='0';
-	cs_gp<='0';
-
-	
-	if unsigned(address)>= 0 and unsigned(address)<64 then	
-		cs_per<='1';
-		address_per <=address;
-		if oe= '1' then
-			oe_per<='1';
-			databus<=databus_per;
-		
-		elsif write_en='1' then
-			write_en_per<='1';
-			databus_per<=databus;
-			
-		end if;
-
-	elsif unsigned(address)>= 64 and unsigned(address)<256 then
-		cs_gp<='0';
-		address_gp <= address ;
-		if oe= '1' then
-			oe_gp<='1';
-			databus<=databus_gp;
-		elsif write_en='1' then
-			write_en_gp<='1';
-			databus_gp<=databus;
-		end if;
-end if;
-end process;
+--cs_ram : process (databus, address, oe, write_en, databus_gp, databus_per, address_per, address_gp, oe_per, oe_gp, write_en_per, write_en_gp)  -- no reset
+--begin
+--	databus<=(others=>'Z');
+--	
+--	databus_gp<=(others=>'Z');
+--	databus_per<=(others=>'Z');
+--	
+--	oe_per<='Z';
+--	oe_gp<='Z';
+--	
+--	write_en_gp<='Z';
+--	write_en_per<='Z';
+--	
+--	address_gp<=(others=>'Z');
+--	address_per<=(others=>'Z');
+--
+--	
+--	if unsigned(address)>= 0 and unsigned(address)<64 then	
+--		address_per <=address(5 downto 0);
+--		if oe= '1' then
+--			oe_per<='1';
+--			databus<=databus_per;
+--		
+--		elsif write_en='1' then
+--			write_en_per<='1';
+--			databus_per<=databus;
+--		
+--		end if;
+--
+--	elsif unsigned(address)>= 64 and unsigned(address)<256 then
+--		address_gp <= address ;
+--		if oe= '1' then
+--			oe_gp<='1';
+--			databus<=databus_gp;
+--			
+--		elsif write_en='1' then
+--			write_en_gp<='1';
+--			databus_gp<=databus;
+--		end if;
+--
+--	end if;
+--end process;
 
 -------------------------------------------------------------------------
 
