@@ -30,7 +30,8 @@ PORT(
 		databus  : inout std_logic_vector(7 downto 0); -- Bus de datos
 		switches : out std_logic_vector(7 downto 0); -- Estado de los interruptores
 		temp_l	: out std_logic_vector(3 downto 0); -- BCD dígito bajo
-		temp_h	: out std_logic_vector(3 downto 0) -- BCD dígito alto
+		temp_h	: out std_logic_vector(3 downto 0);
+		cs	: in std_logic-- BCD dígito alto
 	);
 END ram_peripheals;
 
@@ -47,7 +48,7 @@ begin
 -------------------------------------------------------------------------
 ram_64_bytes : process (Clk,Reset)  -- no reset
 begin
-	databus<=(others=>'Z');
+	databus <= (others =>'Z');
 	if Reset = '0' then
 		for i in 0 to	63 loop
 			contents_ram(i)<=(others => '0');
@@ -55,15 +56,14 @@ begin
 		--unidades<=to_unsigned(0, 4);
 		--decenas<=to_unsigned(0, 4);
 		
-	else 
-		if clk'event and clk = '1' then	
+	elsif clk'event and clk = '1' then	
+		if cs = '1' then
 			if write_en = '1' then
 				contents_ram(to_integer(unsigned(address))) <= databus;
 			elsif oe ='1' then
 				databus <= contents_ram(to_integer(unsigned(address)));
 			end if;
 			switches<=contents_ram(16); 
-			--
 		end if;
 	end if;
 end process;

@@ -1,0 +1,5 @@
+vhdl work "FIFO.vhd"
+vhdl work "ShiftRegister.vhd"
+vhdl work "rs232_tx.vhd"
+vhdl work "RS232_RX.vhd"
+vhdl work "RS232top.vhd"
