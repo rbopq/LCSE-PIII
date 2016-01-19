@@ -1,30 +1,44 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control_isim_beh.exe -prj C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control_beh.prj work.tb_bloque_control 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_isim_par.exe -prj C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_par.prj work.RS232top_TB 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PIC_pkg.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ROM.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/main_control.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ALU.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.vhd" into library work
-Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control.vhd" into library work
+Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/netgen/par/NEXYS_TOP_timesim.vhd" into library work
+Parsing VHDL file "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
-Compiling package pic_pkg
 Compiling package numeric_std
+Compiling package textio
+Compiling package vital_timing
+Compiling package vcomponents
+Compiling package vital_primitives
+Compiling package vpackage
 Compiling package std_logic_arith
-Compiling package std_logic_unsigned
-Compiling architecture behavioral of entity MAIN_CONTROL [main_control_default]
-Compiling architecture behavioral of entity ALU [alu_default]
-Compiling architecture automatic of entity ROM [rom_default]
-Compiling architecture behavioral of entity bloque_control [bloque_control_default]
-Compiling architecture behavior of entity tb_bloque_control
+Compiling package std_logic_signed
+Compiling package std_logic_textio
+Compiling architecture x_buf_v of entity X_BUF [\X_BUF(true,true,"UNPLACED",(0,0...]
+Compiling architecture x_ramb8bwer_v of entity X_RAMB8BWER [\X_RAMB8BWER(true,"*",true,true,...]
+Compiling architecture x_lut6_v of entity X_LUT6 [\X_LUT6(true,true,"UNPLACED",(0,...]
+Compiling architecture x_lut5_v of entity X_LUT5 [\X_LUT5(true,true,"UNPLACED",(0,...]
+Compiling architecture x_one_v of entity X_ONE [\X_ONE("UNPLACED")(1,8)\]
+Compiling architecture x_carry4_v of entity X_CARRY4 [\X_CARRY4(true,"*",true,true,"UN...]
+Compiling architecture x_ff_v of entity X_FF [\X_FF(true,true,true,"UNPLACED",...]
+Compiling architecture x_obuf_v of entity X_OBUF [\X_OBUF(true,true,"DONT_CARE",12...]
+Compiling architecture x_ckbuf_v of entity X_CKBUF [\X_CKBUF(true,true,"UNPLACED",(0...]
+Compiling architecture x_inv_v of entity X_INV [\X_INV(true,true,"UNPLACED",(0,0...]
+Compiling architecture x_mux2_v of entity X_MUX2 [\X_MUX2(true,true,"UNPLACED",(0,...]
+Compiling architecture x_ramd64_adv_v of entity X_RAMD64_ADV [\X_RAMD64_ADV(true,true,true,"UN...]
+Compiling architecture x_ff_v of entity X_FF [\X_FF(true,false,true,"UNPLACED"...]
+Compiling architecture x_zero_v of entity X_ZERO [\X_ZERO("UNPLACED")(1,8)\]
+Compiling architecture x_roc_v of entity X_ROC [\X_ROC("UNPLACED",100000,"*")(1,...]
+Compiling architecture x_toc_v of entity X_TOC [\X_TOC("UNPLACED",0,"*")(1,8,1,1...]
+Compiling architecture structure of entity NEXYS_TOP [nexys_top_default]
+Compiling architecture testbench of entity rs232top_tb
 Time Resolution for simulation is 1ps.
-Waiting for 2 sub-compilation(s) to finish...
-Compiled 15 VHDL Units
-Built simulation executable C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control_isim_beh.exe
-Fuse Memory Usage: 37196 KB
-Fuse CPU Usage: 921 ms
+Waiting for 3 sub-compilation(s) to finish...
+Compiled 558 VHDL Units
+Built simulation executable C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/RS232top_TB_isim_par.exe
+Fuse Memory Usage: 105364 KB
+Fuse CPU Usage: 4390 ms

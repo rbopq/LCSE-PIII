@@ -3,7 +3,7 @@ library ieee;
    use ieee.std_logic_1164.all;
    use ieee.numeric_std.all;
    
-	use work.RS232_test.all;
+--	use work.RS232_test.all;
 	
 entity RS232top_TB is
 end RS232top_TB;
@@ -52,8 +52,8 @@ begin
   -- Clock generator
   p_clk : PROCESS
   BEGIN
-     clk <= '1', '0' after 5 ns;
-     wait for 10 ns;
+     clk <= '1', '0' after 25 ns;
+     wait for 50 ns;
   END PROCESS;
 
   -- Reset & Start generator
@@ -66,63 +66,50 @@ begin
   	  Send<='0', '1' after 400000 ns, 
 					 '0' after 400100 ns; 
 
-	  --Data_in <= "11010101", "10100111" after 90000 ns, "01001000" after 180000 ns ;
-	  
---	  Valid_D <= 	'1', '0' after 10 us,
---						'1' after 15 us,
---						'0' after 120 us, 
---						'1' after 125 us, 
---						'0' after 220 us, 
---						'1' after 225 us;
+-- Para simulación behaivoral
 
-		wait for 20us;
-      Transmit(RD, "00110001");
-		wait for 20us;
-		Transmit(RD, "00110010");
-		wait for 20us;
-		Transmit(RD, "00110101");
-		wait for 20us;
+--		wait for 20 us;
+--      Transmit(RD, "00110001");
+--		wait for 20 us;
+--		Transmit(RD, "00110010");
+--		wait for 20 us;
+--		Transmit(RD, "00110101");
+--		wait for 20 us;
 		
 		
 
---     RD <= '1',
---           '0' after 500 ns,    -- StartBit
---           '1' after 500 ns + (baud_period) ,   -- LSb
---           '0' after 500 ns + (baud_period*2),
---           '0' after 500 ns + (baud_period*3),
---           '1' after 500 ns + (baud_period*4),
---           '1' after 500 ns + (baud_period*5),
---           '1' after 500 ns + (baud_period*6),
---           '1' after 500 ns + (baud_period*7),
---           '0' after 500 ns + (baud_period*8), -- MSb
---           '1' after 500 ns + (baud_period*9),  -- Stopbit			  
---           '0' after 85000 ns,  -- StartBit
---           '0' after 85000 ns + (baud_period) ,   -- LSb
---           '1' after 85000 ns + (baud_period*2),
---           '0' after 85000 ns + (baud_period*3),
---           '1' after 85000 ns + (baud_period*4),
---           '0' after 85000 ns + (baud_period*5),
---           '1' after 85000 ns + (baud_period*6),
---           '1' after 85000 ns + (baud_period*7),
---           '1' after 85000 ns + (baud_period*8), -- MSb
---           '1' after 85000 ns + (baud_period*9),  -- Stopbit
---           '1' after 200000 ns, --StarBit
---			  '1' after 200000 ns + (baud_period) ,   -- LSb
---           '0' after 200000 ns + (baud_period*2),
---           '1' after 200000 ns + (baud_period*3),
---           '1' after 200000 ns + (baud_period*4),
---           '0' after 200000 ns + (baud_period*5),
---           '1' after 200000 ns + (baud_period*6),
---           '0' after 200000 ns + (baud_period*7),
---           '1' after 200000 ns + (baud_period*8), -- MSb
---           '1' after 200000 ns + (baud_period*9);  -- Stopbit	
+     RD <= '1',
+           '0' after 500 ns,    -- StartBit
+           '1' after 500 ns + (baud_period) ,   -- LSb
+           '0' after 500 ns + (baud_period*2),
+           '0' after 500 ns + (baud_period*3),
+           '1' after 500 ns + (baud_period*4),
+           '1' after 500 ns + (baud_period*5),
+           '1' after 500 ns + (baud_period*6),
+           '1' after 500 ns + (baud_period*7),
+           '0' after 500 ns + (baud_period*8), -- MSb
+           '1' after 500 ns + (baud_period*9),  -- Stopbit			  
+           '0' after 85000 ns,  -- StartBit
+           '0' after 85000 ns + (baud_period) ,   -- LSb
+           '1' after 85000 ns + (baud_period*2),
+           '0' after 85000 ns + (baud_period*3),
+           '1' after 85000 ns + (baud_period*4),
+           '0' after 85000 ns + (baud_period*5),
+           '1' after 85000 ns + (baud_period*6),
+           '1' after 85000 ns + (baud_period*7),
+           '1' after 85000 ns + (baud_period*8), -- MSb
+           '1' after 85000 ns + (baud_period*9),  -- Stopbit
+           '1' after 200000 ns, --StarBit
+			  '1' after 200000 ns + (baud_period) ,   -- LSb
+           '0' after 200000 ns + (baud_period*2),
+           '1' after 200000 ns + (baud_period*3),
+           '1' after 200000 ns + (baud_period*4),
+           '0' after 200000 ns + (baud_period*5),
+           '1' after 200000 ns + (baud_period*6),
+           '0' after 200000 ns + (baud_period*7),
+           '1' after 200000 ns + (baud_period*8), -- MSb
+           '1' after 200000 ns + (baud_period*9);  -- Stopbit	
 			  
---     Data_read <= '0','1' after 90000 ns,
---					'0' after 95000 ns,
---					'1' after 205000 ns,
---					'0' after 210000 ns, 
---					'1' after 350000 ns, 
---					'0' after 355000 ns;
      
   
 	  wait;

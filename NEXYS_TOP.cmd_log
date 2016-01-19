@@ -26,3 +26,113 @@ ngdbuild -intstyle ise -dd _ngo -sd ../../RS_232_GUAY/ipcore_dir -nt timestamp -
 map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
 par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
 trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -ar Structure -tm NEXYS_TOP -w -dir netgen/synthesis -ofmt vhdl -sim NEXYS_TOP.ngc NEXYS_TOP_synthesis.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -w -dir netgen/map -ofmt vhdl -sim NEXYS_TOP_map.ncd NEXYS_TOP_map.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 NEXYS_TOP.ngc NEXYS_TOP.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o NEXYS_TOP_map.ncd NEXYS_TOP.ngd NEXYS_TOP.pcf 
+par -w -intstyle ise -ol high -mt off NEXYS_TOP_map.ncd NEXYS_TOP.ncd NEXYS_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml NEXYS_TOP.twx NEXYS_TOP.ncd -o NEXYS_TOP.twr NEXYS_TOP.pcf 
+netgen -intstyle ise -s 3  -pcf NEXYS_TOP.pcf -rpw 100 -tpw 0 -ar Structure -tm NEXYS_TOP -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim NEXYS_TOP.ncd NEXYS_TOP_timesim.vhd 

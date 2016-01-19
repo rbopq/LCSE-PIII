@@ -8,18 +8,19 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/NEXYS_TOP - Behavioral C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|NEXYS_TOP.vhd/PIC_pkg</ClosedNode>
+         <ClosedNode>/NEXYS_TOP - Behavioral C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|NEXYS_TOP.vhd/ram_top - ram - behavior/periph_ram - ram_peripheals - Behavioral</ClosedNode>
          <ClosedNode>/NEXYS_TOP - Behavioral C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|NEXYS_TOP.vhd/top - RS232top - RTL</ClosedNode>
          <ClosedNode>/PICtop - behavior C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|PICtop.vhd/RS232_test</ClosedNode>
          <ClosedNode>/PICtop_tb - TestBench C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|tb_PICtop.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>xc6slx16-3csg324</SelectedItem>
+         <SelectedItem>NEXYS_TOP - Behavioral (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a6000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a60000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b7000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b70000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>xc6slx16-3csg324</CurrentItem>
+      <CurrentItem>NEXYS_TOP - Behavioral (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -42,12 +43,14 @@
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
-      <SelectedItems/>
+      <SelectedItems>
+         <SelectedItem>PIC_pkg.vhd</SelectedItem>
+      </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000028e000000040101000100000000000000000000000064ffffffff000000810000000000000004000000a30000000100000000000000240000000100000000000000660000000100000000000001610000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000001bc000000040101000100000000000000000000000064ffffffff000000810000000000000004000000a300000001000000000000002400000001000000000000006600000001000000000000008f0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>main_control.vhd</CurrentItem>
+      <CurrentItem>PIC_pkg.vhd</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -56,7 +59,7 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000109000000010001000100000000000000000000000064ffffffff000000810000000000000001000001090000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000000f8000000010001000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>PIC_pkg.vhd</CurrentItem>
    </ItemView>
@@ -66,19 +69,23 @@
          <ClosedNode>Configure Target Device</ClosedNode>
          <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Implement Design/Map/Generate Post-Map Static Timing</ClosedNode>
+         <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
+         <ClosedNode>Implement Design/Translate</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>Implement Design</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001ab000000010000000100000000000000000000000064ffffffff000000810000000000000001000001ab0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>Implement Design</CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Behavioral Simulation</CurrentView>
+   <CurrentView>Post-Route Simulation</CurrentView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_PACKAGE_BODY" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
@@ -107,35 +114,20 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/PIC_pkg C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|PIC_pkg.vhd</ClosedNode>
-         <ClosedNode>/RS232top_TB - Testbench C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|tb_RS232_DMA_RAM.vhd/UUT - NEXYS_TOP - Behavioral/ram_top - ram - behavior</ClosedNode>
-         <ClosedNode>/RS232top_TB - Testbench C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|tb_RS232_DMA_RAM.vhd/UUT - NEXYS_TOP - Behavioral/top - RS232top - RTL</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>tb_bloque_control - behavior (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control.vhd)</SelectedItem>
+         <SelectedItem>RS232top_TB - Testbench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001ba000000020000000000000000000000000200000064ffffffff000000810000000300000002000001ba0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001cb000000020000000000000000000000000200000064ffffffff000000810000000300000002000001cb0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>tb_bloque_control - behavior (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control.vhd)</CurrentItem>
+      <CurrentItem>RS232top_TB - Testbench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
-   </ItemView>
-   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem></SelectedItem>
@@ -145,6 +137,19 @@
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_PACKAGE_BODY" guiview="Process" >
       <ClosedNodes>
@@ -194,7 +199,7 @@
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000185000000020000000000000000000000000200000064ffffffff000000810000000300000002000001850000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>RS232top_TB - Testbench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="PostRouteSim" sourcetype="" guiview="Process" >
@@ -216,12 +221,12 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>Simulate Post-Place &amp; Route Model</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>Simulate Post-Place &amp; Route Model</CurrentItem>
    </ItemView>
 </Project>

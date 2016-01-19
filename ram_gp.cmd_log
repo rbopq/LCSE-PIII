@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_gp.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_gp.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_gp.ngc ram_gp.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_gp_map.ncd ram_gp.ngd ram_gp.pcf 
+par -w -intstyle ise -ol high -mt off ram_gp_map.ncd ram_gp.ncd ram_gp.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ram_gp.twx ram_gp.ncd -o ram_gp.twr ram_gp.pcf 

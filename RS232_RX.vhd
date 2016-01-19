@@ -44,7 +44,7 @@ signal CurrentState, NextState : State ;
 signal data_count: unsigned (2 downto 0); --Ocho bits 2**3
 signal width_count: unsigned (7 downto 0); --Ocho bits 2**3
 -- Señales de control para lógica de registros 
-signal Valid_out_tmp, Code_out_tmp, Store_out_tmp: std_logic;
+--signal Valid_out_tmp, Code_out_tmp, Store_out_tmp: std_logic;
 constant PulseEndOfCount: integer:= 174; --Cuenta 20MHz/115200bps
 signal en_width_count, en_halfwidth_count, en_data_count: std_logic;
 
@@ -54,17 +54,22 @@ begin
 transicion_estados: process(LineRD_in, CurrentState, width_count, data_count)
 begin
 	NextState <= CurrentState;
-	Code_out_tmp<='0';
-	Store_out_tmp<='0';
+	--Code_out_tmp<='0';
+	Code_out<='0';
+	--Store_out_tmp<='0';
+	Store_out<='0';
 	case CurrentState is
 		when Idle =>
 			if LineRD_in = '0' then
 				NextState <= StartBit;
 			end if;
 			-- Salidas
-			Valid_out_tmp<='0';
-			Code_out_tmp<='0';
-			Store_out_tmp<='0';
+			--Valid_out_tmp<='0';
+			Valid_out<='0';
+			--Code_out_tmp<='0';
+			Code_out<='0';
+			--Store_out_tmp<='0';
+			Store_out<='0';
 			-- Contadores 
 			en_halfwidth_count<='0';
 			en_width_count<='0';
@@ -75,9 +80,12 @@ begin
 				NextState <= RcvData;
 			end if;
 			-- Salidas
-			Valid_out_tmp<='0';
-			Code_out_tmp<='0';
-			Store_out_tmp<='0';
+			--Valid_out_tmp<='0';
+			Valid_out<='0';
+			--Code_out_tmp<='0';
+			Code_out<='0';
+			--Store_out_tmp<='0';
+			Store_out<='0';
 			-- Contadores 
 			en_halfwidth_count<='1';
 			en_width_count<='0';
@@ -88,17 +96,24 @@ begin
 				if data_count =7 then
 					-- Salidas
 					NextState <= StopBit;
-					Code_out_tmp<=LineRD_in;
-					Valid_out_tmp<='1';
-					Store_out_tmp<='0';
+					--Code_out_tmp<=LineRD_in;
+					Code_out<=LineRD_in;
+					--Valid_out_tmp<='1';
+					Valid_out<='1';
+					--Store_out_tmp<='0';
+					Store_out<='0';
 				else
 					-- Salidas
-					Code_out_tmp<=LineRD_in;
-					Valid_out_tmp<='1';
-					Store_out_tmp<='0';
+					--Code_out_tmp<=LineRD_in;
+					Code_out<=LineRD_in;
+					--Valid_out_tmp<='1';
+					Valid_out<='1';
+					--Store_out_tmp<='0';
+					Store_out<='0';
 				end if;
 			else
-				Valid_out_tmp<='0';
+				--Valid_out_tmp<='0';
+				Valid_out<='0';
 			end if;
 			-- Contadores 
 			en_halfwidth_count<='0';
@@ -109,11 +124,14 @@ begin
 			if width_count = PulseEndOfCount/2 and LineRD_in= '1' then
 					-- Salidas
 					NextState <= Idle;
-					Code_out_tmp<=LineRD_in;
-					Store_out_tmp<='1';
+					--Code_out_tmp<=LineRD_in;
+					Code_out<=LineRD_in;
+					--Store_out_tmp<='1';
+					Store_out<='1';
 			end if;	
-			Valid_out_tmp<='0';
-
+			--Valid_out_tmp<='0';
+			Valid_out<='0';
+			
 			-- Contadores 
 			en_halfwidth_count<='1';
 			en_width_count<='0';
@@ -129,9 +147,9 @@ begin
 		CurrentState<= Idle;
 	elsif Clk'event and Clk = '1' then
 		CurrentState <= NextState;
-		Valid_out<=Valid_out_tmp;
-		Code_out<=Code_out_tmp;
-		Store_out<=Store_out_tmp;
+--		Valid_out<=Valid_out_tmp;
+--		Code_out<=Code_out_tmp;
+--		Store_out<=Store_out_tmp;
 	end if; 
 end process; 
 

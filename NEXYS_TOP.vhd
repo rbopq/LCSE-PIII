@@ -54,14 +54,14 @@ signal data_in, data_out, address, databus: std_logic_vector(7 downto 0);
 --signal valid_d_nexys: std_logic;
 
 
-  component clk_50 is
-    port
-     (-- Clock in ports
-        CLK_IN1           : in     std_logic;
-         --Clock out ports
-        CLK_OUT1          : out    std_logic
-     );
-    end component;
+--  component clk_50 is
+--    port
+--     (-- Clock in ports
+--        CLK_IN1           : in     std_logic;
+--         --Clock out ports
+--        CLK_OUT1          : out    std_logic
+--     );
+--    end component;
 
   component RS232top is 
   port (
@@ -118,14 +118,17 @@ signal data_in, data_out, address, databus: std_logic_vector(7 downto 0);
 	
 begin
  
-clk0: clk_50 port map (
-		CLK_IN1=> Clk,
-		CLK_OUT1=> clk_nexys);
+--clk0: clk_50 port map (
+--		CLK_IN1=> Clk,
+--		CLK_OUT1=> clk_nexys);
+
+--clk_nexys<=clk;
 
 top:RS232top port map(
 	 Reset => rst_nexys,   
-    Clk => clk_nexys,
-    Data_in => Data_in,
+    --Clk => clk_nexys,
+    Clk => Clk,
+	 Data_in => Data_in,
     Valid_D =>    Valid_D,                               
     Ack_in   =>   Ack_in,                                  
     TX_RDY    =>  TX_RDY,
@@ -141,8 +144,9 @@ top:RS232top port map(
 
 dma_top:dma port map(
 		Reset=>rst_nexys,
-		Clk => clk_nexys,
-      RCVD_Data=>Data_out,
+		--Clk => clk_nexys,
+      Clk => Clk,
+		RCVD_Data=>Data_out,
 		RX_Full=>Full,
       RX_Empty=>Empty,
 		Data_read  =>Data_read,
@@ -161,7 +165,8 @@ dma_top:dma port map(
 
 ram_top:ram port map(
 		Reset=>rst_nexys,
-		Clk => clk_nexys,
+		--Clk => clk_nexys,
+		Clk => Clk,
 		write_en =>Write_en,
 		oe =>OE,
 		address=>Address, 

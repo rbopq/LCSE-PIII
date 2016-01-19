@@ -1,0 +1,2 @@
+vhdl work "netgen/map/NEXYS_TOP_map.vhd"
+vhdl work "tb_RS232_DMA_RAM.vhd"

@@ -67,10 +67,10 @@ signal IS_stall: STD_LOGIC;
 signal set_prog_count: STD_LOGIC;
 
 -- Registros para controld e Databus
-signal Databus_temp : STD_LOGIC_VECTOR(7 downto 0);
-signal RAM_Addr_temp : STD_LOGIC_VECTOR(7 downto 0);
-signal Databus_using : STD_LOGIC;
-signal RAM_Write_temp : STD_LOGIC;
+--signal Databus_temp : STD_LOGIC_VECTOR(7 downto 0);
+--signal RAM_Addr : STD_LOGIC_VECTOR(7 downto 0);
+--signal Databus_using : STD_LOGIC;
+--signal RAM_Write : STD_LOGIC;
 
 
 -- Señales para estados del controlador
@@ -83,47 +83,40 @@ begin
 -- Lógica de cálculo de salidas y microinstrucciones
 calculo_salidas: process(CurrentState)
 begin
+	ROM_Addr <= (others => 'Z');
+	RAM_Addr <= (others => 'Z');
+	RAM_CS <= 'Z';
+	RAM_Write <= 'Z';
+	RAM_OE <= 'Z';
+	Databus <= (others => 'Z');
+	DMA_ACK <= '0';
+	SEND_comm<='0';
+	ALU_op<=nop;
+	EN_prog_count<='0';
+	--Reg_instruct<=(others => '0');
+	--Reg_operand<=(others => '0');
+	set_prog_count <= '0';
+	IS_stall<='0';
+
 	case CurrentState is
 		when Ini=>
-			DMA_ACK <= '0';
-			EN_prog_count<='0';
-			Databus_using <= '0';
-			SEND_comm<='0';
-			ALU_op<=nop;
-			Reg_instruct<=(others => '0');
-			Reg_operand<=(others => '0');
-			IS_stall<='0';
-			Databus_temp <=(others => '0');
-			RAM_Addr_temp<=(others => '0');
-			RAM_Write_temp <='0';
-			set_prog_count <= '0';
-			EN_prog_count<='0';
-
-		
-		when Sleep=>
-			--Databus <= (others => 'Z');
-			DMA_ACK <= '1';
-			EN_prog_count<='0';
-			set_prog_count <= '0';
-		 
-		when Get_instruct=>
-			set_prog_count <= '0';
---			ROM_Addr<=prog_count;
-			Reg_instruct<=ROM_Data;
 			EN_prog_count<='1';
+			
+		when Sleep=>
+			DMA_ACK <= '1';
+	 
+		when Get_instruct=>
+			EN_prog_count<='1';
+			Reg_instruct<=ROM_Data;
 			 
 		when Get_operand=>
-			set_prog_count <= '0';
---			ROM_Addr<=prog_count;
 			Reg_operand<=ROM_Data;
-			EN_prog_count<='1';
 			 
 		when Execute=>
-			set_prog_count <= '0';
 			EN_prog_count<='0';
-			case ROM_Data(7 downto 6) is
+			case Reg_instruct(7 downto 6) is
 				when TYPE_1 =>
-					case ROM_Data (5 downto 0) is
+					case Reg_instruct (5 downto 0) is
 						when ALU_ADD =>
 							ALU_op<=op_add;
 						when ALU_SUB =>
@@ -152,7 +145,7 @@ begin
 						
 					end case;
 				when TYPE_2 =>
-					case ROM_Data (5 downto 0) is
+					case Reg_instruct (5 downto 0) is
 						when JMP_UNCOND =>
 								set_prog_count <= '1';
 						when JMP_COND =>
@@ -162,11 +155,11 @@ begin
 						when others=>
 					end case;	
 				when TYPE_3 =>
-					case ROM_Data (5) is
+					case Reg_instruct (5) is
 						when '0' => --LD
-							case ROM_Data(4 downto 3) is	
+							case Reg_instruct(4 downto 3) is	
 								when SRC_ACC =>
-									case ROM_Data(2 downto 0) is
+									case Reg_instruct(2 downto 0) is
 										when DST_A =>
 											ALU_op<=op_mvacc2a;				
 										when DST_B =>
@@ -176,85 +169,81 @@ begin
 										when others=>
 									end case;
 								when SRC_CONSTANT =>
-									case ROM_Data(2 downto 0) is
+									case Reg_instruct(2 downto 0) is
 										when DST_A =>
-											Databus_temp<=Reg_operand(7 downto 0);
-											Databus_using <= '1';
+											Databus<=Reg_operand(7 downto 0);
 											ALU_op<=op_lda;				
 										when DST_B =>
-											Databus_temp<=Reg_operand(7 downto 0);
-											Databus_using <= '1';
+											Databus<=Reg_operand(7 downto 0);
 											ALU_op<=op_ldb;				
 										when DST_INDX =>
-											Databus_temp<=Reg_operand(7 downto 0);
-											Databus_using <= '1';
+											Databus<=Reg_operand(7 downto 0);
 											ALU_op<=op_ldid;
 										when DST_ACC =>
-											Databus_temp<=Reg_operand(7 downto 0);
-											Databus_using <= '1';
+											Databus<=Reg_operand(7 downto 0);
 											ALU_op<=op_ldacc;
 										when others=>
 									end case;
 								when SRC_INDXD_MEM =>
-									case ROM_Data(2 downto 0) is
+									ALU_op<=op_mvacc2id;
+									case Reg_instruct(2 downto 0) is
 										when DST_A =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
+											RAM_Write <= '0';
 											ALU_op<=op_lda;				
 										when DST_B =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
+											RAM_Write <= '0';
 											ALU_op<=op_ldb;				
 										when DST_INDX =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
+											RAM_Write <= '0';
 											ALU_op<=op_ldid;
 										when DST_ACC =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));				
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));				
+											RAM_Write <= '0';
 											ALU_op<=op_ldacc;
 										when others=>
 									end case;							
 								when SRC_MEM =>
-									case ROM_Data(2 downto 0) is
+									case Reg_instruct(2 downto 0) is
 										when DST_A =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
+											RAM_Write <= '0';
 											ALU_op<=op_lda;				
 										when DST_B =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
+											RAM_Write <= '0';
 											ALU_op<=op_ldb;				
 										when DST_INDX =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
+											RAM_Write <= '0';
 											ALU_op<=op_ldid;
 										when DST_ACC =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));									
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));					
+											RAM_Write <= '0';
 											ALU_op<=op_ldacc;
 										when others=>
 									end case;							
 								when others=>
 							end case;	
 						when WR =>
-							case ROM_Data(4 downto 3) is	
+							case Reg_instruct(4 downto 3) is	
 								when SRC_ACC =>
-									case ROM_Data(2 downto 0) is
+									case Reg_instruct(2 downto 0) is
 										when DST_INDX =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Index_Reg));
-											RAM_Write_temp <= '1';
-											Databus_using <= '1';
+											ALU_op<=op_mvacc2id;
+											RAM_Addr <= std_logic_vector(unsigned(Index_Reg));
+											RAM_Write <= '1';
 											ALU_op <= op_oeacc;				
 										when DST_MEM =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
-											RAM_Write_temp <= '1';
-											Databus_using <= '1';
+											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
+											RAM_Write <= '1';
 											ALU_op <= op_oeacc;				
 										when DST_INDXD_MEM =>
-											RAM_Addr_temp <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
-											RAM_Write_temp <= '1';
-											Databus_using <= '1';
+											ALU_op<=op_mvacc2id;
+											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
+											RAM_Write <= '1';
 											ALU_op <= op_oeacc;				
 										when others=>	
 									end case;
@@ -334,12 +323,11 @@ progr_count: process(Clk, Reset)
 begin
 	if Reset = '0' then
 		prog_count <= (others => '0');
-		ROM_Addr<=prog_count;
 	elsif Clk'event and Clk = '1' then
 		if EN_prog_count = '1' then --Enable
 			if set_prog_count='1' then
-				prog_count <=Reg_operand;
-				ROM_Addr<=prog_count;
+				--prog_count <=Reg_operand;
+				ROM_Addr<=Reg_operand;
 			else
 				prog_count <=std_logic_vector(unsigned(prog_count) + 1);
 				ROM_Addr<=prog_count;
@@ -349,11 +337,11 @@ begin
 	end if; 	
 end process;
 
-Databus <= Databus_temp when Databus_using='1' else (others => 'Z');
-RAM_Addr <= RAM_Addr_temp when Databus_using='1' else (others => 'Z');
-RAM_CS <= 'Z' when Databus_using='1' else 'Z';
-RAM_OE <= 'Z' when Databus_using='1' else 'Z';
-RAM_Write <= RAM_Write_temp when Databus_using='1' else 'Z';
+--Databus <= Databus_temp when Databus_using='1' else (others => 'Z');
+--RAM_Addr <= RAM_Addr when Databus_using='1' else (others => 'Z');
+--RAM_CS <= 'Z' when Databus_using='1' else 'Z';
+--RAM_OE <= 'Z' when Databus_using='1' else 'Z';
+--RAM_Write <= RAM_Write when Databus_using='1' else 'Z';
 
 
 	

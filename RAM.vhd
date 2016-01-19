@@ -1,25 +1,38 @@
+----------------------------------------------------------------------------------
+-- Company: Technical University of Madrid
+-- Engineer: Rodolfo B. Oporto Quisbert
+-- 
+-- Create Date:    20:19:11 11/22/2015 
+-- Design Name: 	 ram.vhd
+-- Module Name:    ram - Behavioral 
+-- Project Name:   LCSE PIII
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
 
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
-USE IEEE.std_logic_arith.all;
-USE IEEE.std_logic_unsigned.all;
+USE ieee.numeric_std.all;
 
 
 ENTITY ram IS
 PORT (
-   Clk      : in    std_logic;
-   Reset    : in    std_logic;
-   write_en : in    std_logic;
-   oe       : in    std_logic;
-   address  : in    std_logic_vector(7 downto 0);
-   databus  : inout std_logic_vector(7 downto 0);
-	switches : out std_logic_vector(7 downto 0);
-	temp_l	: out std_logic_vector(3 downto 0);
-	temp_h	: out std_logic_vector(3 downto 0));
+   Clk      : in    std_logic; -- Señal de reloj
+   Reset    : in    std_logic; -- Reset asíncrono activo nivel bajo
+   write_en : in    std_logic; -- Señal de habilitación de escritura
+   oe       : in    std_logic; -- Señal de habilitación de lectura
+   address  : in    std_logic_vector(7 downto 0); -- Bus de direcciones
+   databus  : inout std_logic_vector(7 downto 0); -- Bus de datos
+	switches : out std_logic_vector(7 downto 0); -- Estado de los interruptores
+	temp_l	: out std_logic_vector(3 downto 0); -- BCD dígito bajo
+	temp_h	: out std_logic_vector(3 downto 0)); -- BCD dígito alto
 END ram;
 
 ARCHITECTURE behavior OF ram IS
--- RAM para control de periféricos
+
 COMPONENT ram_peripheals
 	PORT (
 				Clk      : in    std_logic;
@@ -30,8 +43,7 @@ COMPONENT ram_peripheals
 				databus  : inout std_logic_vector(7 downto 0);
 				switches : out std_logic_vector(7 downto 0);
 				temp_l	: out std_logic_vector(3 downto 0);
-				temp_h	: out std_logic_vector(3 downto 0);
-				CS			: in std_logic 
+				temp_h	: out std_logic_vector(3 downto 0)--;
 		  );
 END COMPONENT;
 
@@ -41,39 +53,98 @@ COMPONENT ram_gp
 				write_en : in    std_logic;
 				oe       : in    std_logic;
 				address  : in    std_logic_vector(7 downto 0);
-				databus  : inout std_logic_vector(7 downto 0);
-				switches : out std_logic_vector(7 downto 0);
-				temp_l	: out std_logic_vector(3 downto 0);
-				temp_h	: out std_logic_vector(3 downto 0)
+				databus  : inout std_logic_vector(7 downto 0)
 		  );
 END COMPONENT;
 
-SIGNAL address_aux:	std_logic_vector(1 downto 0);
-SIGNAL CS_ram_periph : std_logic;
-SIGNAL CS_ram_gp : std_logic;
+-- PERIPHEALS RAM
+signal write_en_per : std_logic;
+signal oe_per : std_logic;
+signal address_per : std_logic_vector(5 downto 0);
+signal databus_per : std_logic_vector(7 downto 0);
+signal switches_per : std_logic_vector(7 downto 0);
+signal temp_l_per	: std_logic_vector(3 downto 0);
+signal temp_h_per : std_logic_vector(3 downto 0);
+
+-- GP RAM
+signal write_en_gp : std_logic;
+signal oe_gp : std_logic;
+signal address_gp : std_logic_vector(7 downto 0);
+signal databus_gp : std_logic_vector(7 downto 0);
 
 
 
 BEGIN
 
-periph_ram	: ram_peripheals  PORT MAP (Clk,Reset,write_en,oe,address,databus,switches,temp_l,temp_h,CS_ram_periph);
-gp_ram		: ram_gp	 PORT MAP (Clk,write_en,oe,address,databus,switches,temp_l,temp_h);
+periph_ram:ram_peripheals port map(
+		Reset=>Reset,
+		--Clk => clk_nexys,
+		Clk => Clk,
+		write_en =>Write_en,
+		oe =>OE,
+		address=>Address, 
+		databus=>databus, 
+		switches=>switches, 
+		temp_l=>temp_l,	
+		temp_h=>temp_h);
+		
+gp_ram:ram_gp port map(
+		--Clk => clk_nexys,
+		Clk => Clk,
+		write_en =>Write_en,
+		oe =>OE,
+		address=>Address, 
+		databus=>databus);	
+		
+--periph_ram	: ram_peripheals  PORT MAP (Clk,Reset,write_en_per,oe_per,address_per,databus_per,switches,temp_l,temp_h);--CS_ram_periph);
+--gp_ram		: ram_gp	 PORT MAP (Clk,write_en_gp,oe_gp,address_gp,databus_gp);
 
 
 -------------------------------------------------------------------------
 -- Proceso para habilitar o deshabilitar segmentos de RAM
--------------------------------------------------------------------------
-cs_ram : process (address)  -- no reset
-begin
-	case address(7 downto 6) is
-		when "00" => 
-			CS_ram_periph <='1'; 
-			CS_ram_gp<='0';
-		when others=>
-			CS_ram_periph <='0'; 
-			CS_ram_gp<='1';			
-	end case;
-end process;
+---------------------------------------------------------------------------
+--cs_ram : process (databus, address, oe, write_en, databus_gp, databus_per, address_per, address_gp, oe_per, oe_gp, write_en_per, write_en_gp)  -- no reset
+--begin
+--	databus<=(others=>'Z');
+--	
+--	databus_gp<=(others=>'Z');
+--	databus_per<=(others=>'Z');
+--	
+--	oe_per<='Z';
+--	oe_gp<='Z';
+--	
+--	write_en_gp<='Z';
+--	write_en_per<='Z';
+--	
+--	address_gp<=(others=>'Z');
+--	address_per<=(others=>'Z');
+--
+--	
+--	if unsigned(address)>= 0 and unsigned(address)<64 then	
+--		address_per <=address(5 downto 0);
+--		if oe= '1' then
+--			oe_per<='1';
+--			databus<=databus_per;
+--		
+--		elsif write_en='1' then
+--			write_en_per<='1';
+--			databus_per<=databus;
+--		
+--		end if;
+--
+--	elsif unsigned(address)>= 64 and unsigned(address)<256 then
+--		address_gp <= address ;
+--		if oe= '1' then
+--			oe_gp<='1';
+--			databus<=databus_gp;
+--			
+--		elsif write_en='1' then
+--			write_en_gp<='1';
+--			databus_gp<=databus;
+--		end if;
+--
+--	end if;
+--end process;
 
 -------------------------------------------------------------------------
 

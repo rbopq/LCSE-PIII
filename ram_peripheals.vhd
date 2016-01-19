@@ -1,57 +1,45 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: Technical University of Madrid
+-- Engineer: Rodolfo B. Oporto Quisbert
 -- 
 -- Create Date:    20:19:11 11/22/2015 
--- Design Name: 
+-- Design Name: 	 ram_peripheals.vhd
 -- Module Name:    ram_peripheals - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
+-- Project Name:   LCSE PIII
 --
 -- Revision: 
 -- Revision 0.01 - File Created
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
+
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
-USE IEEE.std_logic_arith.all;
-USE IEEE.std_logic_unsigned.all;
+USE IEEE.NUMERIC_STD.ALL;
 
 USE work.PIC_pkg.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 ENTITY ram_peripheals IS
 PORT(
-		Clk      : in    std_logic;
-		Reset    : in    std_logic;
-		write_en : in    std_logic;
-		oe       : in    std_logic;
-		address  : in    std_logic_vector(7 downto 0);
-		databus  : inout std_logic_vector(7 downto 0);
-		switches : out std_logic_vector(7 downto 0);
-		temp_l	: out std_logic_vector(3 downto 0);
-		temp_h	: out std_logic_vector(3 downto 0);
-		CS			: in std_logic 
+		Clk      : in    std_logic; -- Linea de reloj
+		Reset    : in    std_logic; -- Reset asíncrono activo a nivel bajo
+		write_en : in    std_logic; -- Señal de habilitación de escritura
+		oe       : in    std_logic; -- Señal de habilitación de lectura
+		address  : in    std_logic_vector(7 downto 0); -- Bus de direcciónes de memoria
+		databus  : inout std_logic_vector(7 downto 0); -- Bus de datos
+		switches : out std_logic_vector(7 downto 0); -- Estado de los interruptores
+		temp_l	: out std_logic_vector(3 downto 0); -- BCD dígito bajo
+		temp_h	: out std_logic_vector(3 downto 0) -- BCD dígito alto
 	);
 END ram_peripheals;
 
 architecture Behavioral of ram_peripheals is
 
-SIGNAL contents_ram : array8_ram(6 downto 0);
-	
+SIGNAL contents_ram : array8_ram(0 to 63); -- Señal que representa el contenido de la RAM
+SIGNAL decenas, unidades : unsigned(3 downto 0); -- Señales auxiliares para el cálculo de los dígitos BCD
+SIGNAL reg_aux: std_logic_vector(7 downto 0);
+
 begin
 
 -------------------------------------------------------------------------
@@ -59,23 +47,53 @@ begin
 -------------------------------------------------------------------------
 ram_64_bytes : process (Clk,Reset)  -- no reset
 begin
+	databus<=(others=>'Z');
 	if Reset = '0' then
---		for i in 0 to	63 loop
---			contents_ram(i)<=(others => '0');
-			-- Revisar si es necesario cambiar valor por defecto de termostatos
---		end loop;
+		for i in 0 to	63 loop
+			contents_ram(i)<=(others => '0');
+		end loop;
+		--unidades<=to_unsigned(0, 4);
+		--decenas<=to_unsigned(0, 4);
+		
 	else 
-		if CS='1' then -- CS asíncrono
-			if clk'event and clk = '1' then	
-				if write_en = '1' then
-					contents_ram(conv_Integer(address)) <= databus;
-				end if;
+		if clk'event and clk = '1' then	
+			if write_en = '1' then
+				contents_ram(to_integer(unsigned(address))) <= databus;
+			elsif oe ='1' then
+				databus <= contents_ram(to_integer(unsigned(address)));
 			end if;
-		end if;	
+			switches<=contents_ram(16); 
+			--
+		end if;
 	end if;
 end process;
 
-databus <= contents_ram(conv_integer(address)) when oe = '0' else (others => 'Z');
+
+-------------------------------------------------------------------------
+-- Proceso para el cálculo de los digitos BCD de los termostatos
+-------------------------------------------------------------------------
+--cod_asciiToBcd: process(reg_aux, decenas, unidades)
+--begin	
+--	for index in 0 to 7 loop
+--		if ( decenas>= 5) then
+--			decenas <= decenas + 3;
+--		elsif ( unidades>= 5) then
+--			unidades <= unidades + 3;
+--		end if;
+--		decenas <= decenas sll 1;
+--		decenas(0) <= unidades(3);
+--		unidades <= unidades sll 1;
+--		unidades(0) <= reg_aux(index);
+--	end loop;
+--	temp_h <= std_logic_vector(decenas);
+--	temp_l <= std_logic_vector(unidades);
+--	
+--end process;
+
+-------------------------------------------------------------------------
+-- Bloque de memoria de 64 palabras de 8 bits para periféricos
+-------------------------------------------------------------------------
+
 -------------------------------------------------------------------------
 
 end Behavioral;

@@ -46,7 +46,7 @@ signal CurrentState, NextState : State ;
 constant PulseEndOfCount: integer:= 174; --Cuenta 20MHz/115200bps
 signal data_count: unsigned (2 downto 0); --Ocho bits 2**3
 signal width_count: unsigned (7 downto 0); --Cuenta hasta 174
-signal TX_tmp, EOT_tmp: std_logic;
+--signal TX_tmp, EOT_tmp: std_logic;
 signal en_width_count, en_data_count: std_logic;--, end_bit, end_width: std_logic;
 
 begin
@@ -61,8 +61,9 @@ begin
 				NextState <= StartBit;
 			end if;
 			
-			TX_tmp<='1';
-			EOT_tmp<='1';
+			--TX_tmp<='1';
+			TX <= '1';
+			EOT<='1';
 			en_width_count<='0';
 			en_data_count<='0';
 			
@@ -71,8 +72,9 @@ begin
 				NextState <= SendData;
 			end if;
 			
-			TX_tmp<='0';
-			EOT_tmp<='0';
+			--TX_tmp<='0';
+			TX <= '0';
+			EOT<='0';
 			en_width_count<='1';
 			en_data_count<='0';			
 			
@@ -81,8 +83,9 @@ begin
 				NextState <= StopBit;
 			end if;
 			
-			TX_tmp<=Data(to_integer(data_count));
-			EOT_tmp<='0';
+			--TX_tmp<=Data(to_integer(data_count));
+			TX<=Data(to_integer(data_count));
+			EOT<='0';
 			en_width_count<='1';
 			en_data_count<='1';	
 
@@ -91,8 +94,9 @@ begin
 				NextState <= Idle;
 			end if;
 		
-			TX_tmp<='1';
-			EOT_tmp<='0';
+			--TX_tmp<='1';
+			TX<='1';
+			EOT<='0';
 			en_width_count<='1';
 			en_data_count<='0';
 		
@@ -105,8 +109,7 @@ begin
 	if Reset = '0' then 
 		CurrentState<= Idle;
 	elsif Clk'event and Clk = '1' then
-		EOT<=EOT_tmp;
-		TX<=TX_tmp;
+		--TX<=TX_tmp;
 		CurrentState <= NextState;
 	end if; 
 end process; 

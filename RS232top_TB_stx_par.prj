@@ -1,0 +1,2 @@
+vhdl isim_temp "netgen/par/NEXYS_TOP_timesim.vhd"
+vhdl isim_temp "tb_RS232_DMA_RAM.vhd"

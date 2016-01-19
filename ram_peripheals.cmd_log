@@ -1,0 +1,45 @@
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+par -w -intstyle ise -ol high -mt off ram_peripheals_map.ncd ram_peripheals.ncd ram_peripheals.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ram_peripheals.twx ram_peripheals.ncd -o ram_peripheals.twr ram_peripheals.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+par -w -intstyle ise -ol high -mt off ram_peripheals_map.ncd ram_peripheals.ncd ram_peripheals.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ram_peripheals.twx ram_peripheals.ncd -o ram_peripheals.twr ram_peripheals.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+par -w -intstyle ise -ol high -mt off ram_peripheals_map.ncd ram_peripheals.ncd ram_peripheals.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ram_peripheals.twx ram_peripheals.ncd -o ram_peripheals.twr ram_peripheals.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+par -w -intstyle ise -ol high -mt off ram_peripheals_map.ncd ram_peripheals.ncd ram_peripheals.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ram_peripheals.twx ram_peripheals.ncd -o ram_peripheals.twr ram_peripheals.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+par -w -intstyle ise -ol high -mt off ram_peripheals_map.ncd ram_peripheals.ncd ram_peripheals.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ram_peripheals.twx ram_peripheals.ncd -o ram_peripheals.twr ram_peripheals.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+par -w -intstyle ise -ol high -mt off ram_peripheals_map.ncd ram_peripheals.ncd ram_peripheals.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ram_peripheals.twx ram_peripheals.ncd -o ram_peripheals.twr ram_peripheals.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/ram_peripheals.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 ram_peripheals.ngc ram_peripheals.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ram_peripheals_map.ncd ram_peripheals.ngd ram_peripheals.pcf 
+par -w -intstyle ise -ol high -mt off ram_peripheals_map.ncd ram_peripheals.ncd ram_peripheals.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ram_peripheals.twx ram_peripheals.ncd -o ram_peripheals.twr ram_peripheals.pcf 

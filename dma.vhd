@@ -1,33 +1,22 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: Technical University of Madrid
+-- Engineer: Rodolfo B. Oporto Quisbert
 -- 
--- Create Date:    01:35:31 11/23/2015 
--- Design Name: 
--- Module Name:    dma - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
+-- Create Date:    20:19:11 11/22/2015 
+-- Design Name: 	 ram.vhd
+-- Module Name:    ram - Behavioral 
+-- Project Name:   LCSE PIII
 --
 -- Revision: 
 -- Revision 0.01 - File Created
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity dma is
     Port ( Reset : in  STD_LOGIC;
@@ -55,94 +44,93 @@ architecture Behavioral of dma is
 -- Contador de datos para DMA
 signal data_count: unsigned (1 downto 0); --Tres bits 2**2-1
 signal en_data_count: std_logic;
-signal syn_rst: std_logic;
+signal sRESET_count: std_logic;
 constant base_ram: integer:= 0; --Dirección base para DMA
 -- Señales para estados DMA
-type State is	(Idle, DMA_send, DMA_wait_Bus, DMA_write_ram);
+type State is	(Idle, DMA_send, DMA_wait_Bus, DMA_read_RS ,DMA_write_ram);
 signal CurrentState, NextState : State ;
 
 begin
 
--- Lógica de cálculo de salida
-calculo_salidas: process(CurrentState, RX_Empty, Send_comm, data_count, DMA_ACK, RCVD_Data)
+---- Lógica de cálculo de salida
+calculo_salidas: process(CurrentState, data_count, RCVD_Data, Databus, TX_RDY, ACK_out )
 begin
 	-- Valores de iniciación por defecto
-	Data_Read <= '0';
-	Valid_D <= '0';
-	TX_Data <=(others => '0');
-   Address <=(others => '0');
-   Databus <=(others => 'Z');
-   Write_en <= '0';
-   OE <= '0';
-   DMA_RQ <= '0';
-   READY <= '0';	
 	
+	-- RAM
+	Address <=(others => 'Z');
+   Databus <=(others => 'Z');
+   Write_en <= 'Z';
+   OE <= 'Z';
+	
+	-- RS-232
+	Data_Read <= '0';
+	Valid_D <= '1';
+	TX_Data <=(others => '0');
+   
+	--Main control
+   DMA_RQ <= '0';
+   READY <= '1';	
+	
+	-- Señales intetrnas	
 --	NextState <= CurrentState;	
 --	data_count <= to_unsigned(0,2);
 	en_data_count <= '0';
-	syn_rst <= '0';
+	sRESET_count <= '0';
 
 	case CurrentState is
 
 		when Idle =>
-			if RX_Empty = '0' then -- Transición si la pila del RX232 no está vacía
-				DMA_RQ <= '1';
-			elsif Send_comm ='1' then
-				READY <='0';
-				en_data_count <= '1';
-				syn_rst <= '0';
-				TX_Data<=Databus;
-				Address<=std_logic_vector(to_unsigned(Base_RAM,8)+data_count);
-				Write_en<='0';
-			else	
-				Databus <=(others => 'Z');
-			end if;
-
+			
+	
 		when DMA_send =>
 			if data_count = 2 then 
-				READY <='1';
 				en_data_count<='0';
-				syn_rst<='1';
+				OE<='0';
 			else
-				TX_Data<=Databus;
-				Address<=std_logic_vector(to_unsigned(Base_RAM,8)+data_count);
-				Write_en<='0';
-				en_data_count <= '1';
+				READY<='0';
+				if TX_RDY = '1' AND ACK_OUT ='1' then
+					TX_Data<=Databus;
+					Address<=std_logic_vector(to_unsigned(Base_RAM,8)+data_count);
+					OE<='1';
+					en_data_count <= '1';
+					Valid_D<='0';
+				end if;
 			end if;
 
 		when DMA_wait_Bus =>
-			if DMA_ACK='1' then
-				en_data_count<='0';
-				syn_rst<='0';
-				Data_Read <= '1';
-				Databus<=RCVD_Data;
-			end if;
+			DMA_RQ <= '1';
+
+		when DMA_read_RS =>
+			Data_Read <= '1';
+
 
 		when DMA_write_ram=>
 			if data_count = 3 then 
-				Data_Read <= '1';
-				DMA_RQ <='0';
-				Databus<="11111111";
+				Databus<=X"FF";
 				Address<=std_logic_vector(to_unsigned(Base_RAM,8)+data_count);
-				en_data_count<='0';
-				syn_rst<='1';
 				Write_en<='1';
-				OE<='1';
+				en_data_count<='0';
+				sRESET_count<='1';
+				
 			else
-				Data_Read <= '1';
+			   Data_Read <= '1';
 				Databus<=RCVD_Data;
 				Address<=std_logic_vector(to_unsigned(Base_RAM,8)+data_count);
-				en_data_count<='1';
 				Write_en<='1';
-				OE<='1';
+				en_data_count<='1';
+		
+			
 			end if;
+			
 
 	end case;
-end process;	
+end process;
 
 transicion_estados:process(CurrentState, RX_Empty, Send_comm, data_count, DMA_ACK)
 	begin
 		case CurrentState is
+			 
 			 when Idle=>
 				  if RX_Empty = '0' then -- Transición si la pila del RX232 no está vacía
 						NextState<=DMA_wait_Bus;
@@ -151,24 +139,31 @@ transicion_estados:process(CurrentState, RX_Empty, Send_comm, data_count, DMA_AC
 				  else
 						NextState <= Idle;
 				  end if;
+			 
 			 when DMA_send=>
 				  if data_count = 2 then -- Transición si la pila del RX232 no está vacía
 						NextState <= Idle;
 				  else
 						NextState <= DMA_send;
 				  end if;
+			 
 			 when DMA_wait_Bus=>
 				  if DMA_ACK = '1' then -- Transición si la pila del RX232 no está vacía
-						NextState <= DMA_write_ram;
+						NextState <= DMA_read_RS;
 				  else
 						NextState <= DMA_wait_Bus;
 				  end if;
+				  
+			 when DMA_read_RS=>
+				  NextState <= DMA_write_ram;
+			 
 			 when DMA_write_ram=>
 				  if data_count = 3 then -- Transición si la pila del RX232 no está vacía
 						NextState <= Idle;
 				  else
 						NextState <= DMA_write_ram;
 				  end if;
+		
 		end case;         
        
     end process;
@@ -189,7 +184,7 @@ begin
 	if Reset = '0' then 
 		data_count <= to_unsigned(0,2);
 	elsif Clk'event and Clk = '1' then
-		if syn_rst = '1' then
+		if sRESET_count = '1' then
 			data_count <= to_unsigned(0,2);
 		else
 			if en_data_count = '1' then --Enable

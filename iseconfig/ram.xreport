@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-12-11T16:45:53</DateModified>
-  <ModuleName>RS232top_TB</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <DateModified>2016-01-19T01:32:35</DateModified>
+  <ModuleName>NEXYS_TOP</ModuleName>
+  <SummaryTimeStamp>2016-01-19T01:32:26</SummaryTimeStamp>
   <SavedFilePath>C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/iseconfig/ram.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII\</ImplementationReportsDirectory>
-  <DateInitialized>2015-12-11T16:45:53</DateInitialized>
+  <DateInitialized>2016-01-19T01:32:35</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

@@ -1,5 +1,4 @@
-vhdl work "../../RS_232_GUAY/ipcore_dir/FIFO.vhd"
-vhdl work "../../RS_232_GUAY/ipcore_dir/clk_50.vhd"
+vhdl work "FIFO.vhd"
 vhdl work "PIC_pkg.vhd"
 vhdl work "ShiftRegister.vhd"
 vhdl work "rs232_tx.vhd"
