@@ -1,0 +1,10 @@
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/MAIN_CONTROL.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/MAIN_CONTROL.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 MAIN_CONTROL.ngc MAIN_CONTROL.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MAIN_CONTROL_map.ncd MAIN_CONTROL.ngd MAIN_CONTROL.pcf 
+par -w -intstyle ise -ol high -mt off MAIN_CONTROL_map.ncd MAIN_CONTROL.ncd MAIN_CONTROL.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MAIN_CONTROL.twx MAIN_CONTROL.ncd -o MAIN_CONTROL.twr MAIN_CONTROL.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/MAIN_CONTROL.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/MAIN_CONTROL.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 MAIN_CONTROL.ngc MAIN_CONTROL.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MAIN_CONTROL_map.ncd MAIN_CONTROL.ngd MAIN_CONTROL.pcf 
+par -w -intstyle ise -ol high -mt off MAIN_CONTROL_map.ncd MAIN_CONTROL.ncd MAIN_CONTROL.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MAIN_CONTROL.twx MAIN_CONTROL.ncd -o MAIN_CONTROL.twr MAIN_CONTROL.pcf 

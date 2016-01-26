@@ -1,0 +1,2 @@
+vhdl work "netgen/par/bloque_control_timesim.vhd"
+vhdl work "tb_bloque_control.vhd"

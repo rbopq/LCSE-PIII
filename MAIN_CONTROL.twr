@@ -1,0 +1,149 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml MAIN_CONTROL.twx MAIN_CONTROL.ncd -o MAIN_CONTROL.twr
+MAIN_CONTROL.pcf
+
+Design file:              MAIN_CONTROL.ncd
+Physical constraint file: MAIN_CONTROL.pcf
+Device,package,speed:     xc6slx16,csg324,C,-3 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock Clk
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+DMA_READY   |    1.060(R)|      FAST  |   -0.316(R)|      SLOW  |Clk_BUFGP         |   0.000|
+DMA_RQ      |    2.212(R)|      SLOW  |   -0.647(R)|      SLOW  |Clk_BUFGP         |   0.000|
+FlagZ       |    2.265(R)|      SLOW  |   -0.208(R)|      SLOW  |Clk_BUFGP         |   0.000|
+Reset       |    2.156(R)|      SLOW  |   -0.468(R)|      SLOW  |Clk_BUFGP         |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock Clk to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+ALU_op<0>   |        10.178(R)|      SLOW  |         5.468(R)|      FAST  |Clk_BUFGP         |   0.000|
+ALU_op<1>   |         9.920(R)|      SLOW  |         5.331(R)|      FAST  |Clk_BUFGP         |   0.000|
+ALU_op<2>   |         8.709(R)|      SLOW  |         4.665(R)|      FAST  |Clk_BUFGP         |   0.000|
+ALU_op<3>   |         8.439(R)|      SLOW  |         4.532(R)|      FAST  |Clk_BUFGP         |   0.000|
+ALU_op<4>   |         9.371(R)|      SLOW  |         4.930(R)|      FAST  |Clk_BUFGP         |   0.000|
+DMA_ACK     |         8.285(R)|      SLOW  |         4.338(R)|      FAST  |Clk_BUFGP         |   0.000|
+Databus<0>  |         8.384(R)|      SLOW  |         4.296(R)|      FAST  |Clk_BUFGP         |   0.000|
+Databus<1>  |         8.384(R)|      SLOW  |         4.296(R)|      FAST  |Clk_BUFGP         |   0.000|
+Databus<2>  |         8.589(R)|      SLOW  |         4.437(R)|      FAST  |Clk_BUFGP         |   0.000|
+Databus<3>  |         8.281(R)|      SLOW  |         4.266(R)|      FAST  |Clk_BUFGP         |   0.000|
+Databus<4>  |         8.570(R)|      SLOW  |         4.403(R)|      FAST  |Clk_BUFGP         |   0.000|
+Databus<5>  |         8.787(R)|      SLOW  |         4.556(R)|      FAST  |Clk_BUFGP         |   0.000|
+Databus<6>  |         8.787(R)|      SLOW  |         4.556(R)|      FAST  |Clk_BUFGP         |   0.000|
+Databus<7>  |         8.570(R)|      SLOW  |         4.403(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Addr<0> |         7.806(R)|      SLOW  |         3.756(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Addr<1> |         7.806(R)|      SLOW  |         3.756(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Addr<2> |         7.627(R)|      SLOW  |         3.709(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Addr<3> |         7.621(R)|      SLOW  |         3.677(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Addr<4> |         7.838(R)|      SLOW  |         3.800(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Addr<5> |         7.838(R)|      SLOW  |         3.800(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Addr<6> |         7.876(R)|      SLOW  |         3.805(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Addr<7> |         7.876(R)|      SLOW  |         3.805(R)|      FAST  |Clk_BUFGP         |   0.000|
+RAM_Write   |         8.755(R)|      SLOW  |         4.484(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<0> |         8.047(R)|      SLOW  |         4.335(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<1> |         7.895(R)|      SLOW  |         4.291(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<2> |         7.570(R)|      SLOW  |         4.019(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<3> |         8.071(R)|      SLOW  |         4.390(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<4> |         7.603(R)|      SLOW  |         3.997(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<5> |         7.465(R)|      SLOW  |         3.921(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<6> |         7.657(R)|      SLOW  |         4.057(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<7> |         7.570(R)|      SLOW  |         4.019(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<8> |         7.155(R)|      SLOW  |         3.734(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<9> |         7.252(R)|      SLOW  |         3.788(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<10>|         7.479(R)|      SLOW  |         4.003(R)|      FAST  |Clk_BUFGP         |   0.000|
+ROM_Addr<11>|         7.471(R)|      SLOW  |         3.981(R)|      FAST  |Clk_BUFGP         |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock Clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clk            |    3.216|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+Index_Reg<0>   |RAM_Addr<0>    |    7.889|
+Index_Reg<0>   |RAM_Addr<1>    |    8.270|
+Index_Reg<0>   |RAM_Addr<2>    |    7.668|
+Index_Reg<0>   |RAM_Addr<3>    |    8.585|
+Index_Reg<0>   |RAM_Addr<4>    |    8.284|
+Index_Reg<0>   |RAM_Addr<5>    |    8.510|
+Index_Reg<0>   |RAM_Addr<6>    |    8.716|
+Index_Reg<0>   |RAM_Addr<7>    |    8.164|
+Index_Reg<1>   |RAM_Addr<1>    |    8.478|
+Index_Reg<1>   |RAM_Addr<2>    |    7.921|
+Index_Reg<1>   |RAM_Addr<3>    |    8.844|
+Index_Reg<1>   |RAM_Addr<4>    |    8.536|
+Index_Reg<1>   |RAM_Addr<5>    |    8.762|
+Index_Reg<1>   |RAM_Addr<6>    |    8.968|
+Index_Reg<1>   |RAM_Addr<7>    |    8.416|
+Index_Reg<2>   |RAM_Addr<2>    |    7.851|
+Index_Reg<2>   |RAM_Addr<3>    |    8.770|
+Index_Reg<2>   |RAM_Addr<4>    |    8.508|
+Index_Reg<2>   |RAM_Addr<5>    |    8.734|
+Index_Reg<2>   |RAM_Addr<6>    |    8.940|
+Index_Reg<2>   |RAM_Addr<7>    |    8.388|
+Index_Reg<3>   |RAM_Addr<3>    |    8.405|
+Index_Reg<3>   |RAM_Addr<4>    |    8.145|
+Index_Reg<3>   |RAM_Addr<5>    |    8.371|
+Index_Reg<3>   |RAM_Addr<6>    |    8.577|
+Index_Reg<3>   |RAM_Addr<7>    |    8.025|
+Index_Reg<4>   |RAM_Addr<4>    |    8.617|
+Index_Reg<4>   |RAM_Addr<5>    |    8.815|
+Index_Reg<4>   |RAM_Addr<6>    |    9.110|
+Index_Reg<4>   |RAM_Addr<7>    |    8.575|
+Index_Reg<5>   |RAM_Addr<5>    |    8.458|
+Index_Reg<5>   |RAM_Addr<6>    |    8.798|
+Index_Reg<5>   |RAM_Addr<7>    |    8.269|
+Index_Reg<6>   |RAM_Addr<6>    |    8.853|
+Index_Reg<6>   |RAM_Addr<7>    |    8.320|
+Index_Reg<7>   |RAM_Addr<7>    |    8.044|
+---------------+---------------+---------+
+
+
+Analysis completed Wed Jan 20 00:43:28 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 220 MB
+
+
+

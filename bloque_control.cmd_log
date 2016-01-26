@@ -4,3 +4,31 @@ xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloqu
 xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.syr" 
 xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.syr" 
 xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.syr" 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 bloque_control.ngc bloque_control.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o bloque_control_map.ncd bloque_control.ngd bloque_control.pcf 
+par -w -intstyle ise -ol high -mt off bloque_control_map.ncd bloque_control.ncd bloque_control.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml bloque_control.twx bloque_control.ncd -o bloque_control.twr bloque_control.pcf 
+netgen -intstyle ise -s 3  -pcf bloque_control.pcf -rpw 100 -tpw 0 -ar Structure -tm bloque_control -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim bloque_control.ncd bloque_control_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 bloque_control.ngc bloque_control.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o bloque_control_map.ncd bloque_control.ngd bloque_control.pcf 
+par -w -intstyle ise -ol high -mt off bloque_control_map.ncd bloque_control.ncd bloque_control.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml bloque_control.twx bloque_control.ncd -o bloque_control.twr bloque_control.pcf 
+netgen -intstyle ise -s 3  -pcf bloque_control.pcf -rpw 100 -tpw 0 -ar Structure -tm bloque_control -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim bloque_control.ncd bloque_control_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 bloque_control.ngc bloque_control.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o bloque_control_map.ncd bloque_control.ngd bloque_control.pcf 
+par -w -intstyle ise -ol high -mt off bloque_control_map.ncd bloque_control.ncd bloque_control.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml bloque_control.twx bloque_control.ncd -o bloque_control.twr bloque_control.pcf 
+netgen -intstyle ise -s 3  -pcf bloque_control.pcf -rpw 100 -tpw 0 -ar Structure -tm bloque_control -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim bloque_control.ncd bloque_control_timesim.vhd 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 bloque_control.ngc bloque_control.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o bloque_control_map.ncd bloque_control.ngd bloque_control.pcf 
+par -w -intstyle ise -ol high -mt off bloque_control_map.ncd bloque_control.ncd bloque_control.pcf 
+xst -intstyle ise -ifn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.xst" -ofn "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/bloque_control.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 bloque_control.ngc bloque_control.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o bloque_control_map.ncd bloque_control.ngd bloque_control.pcf 
+par -w -intstyle ise -ol high -mt off bloque_control_map.ncd bloque_control.ncd bloque_control.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml bloque_control.twx bloque_control.ncd -o bloque_control.twr bloque_control.pcf 
+netgen -intstyle ise -s 3  -pcf bloque_control.pcf -rpw 100 -tpw 0 -ar Structure -tm bloque_control -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim bloque_control.ncd bloque_control_timesim.vhd 

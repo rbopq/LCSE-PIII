@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Reading design: ram.prj
 
@@ -140,6 +140,7 @@ Unit <ram> synthesized.
 
 Synthesizing Unit <ram_peripheals>.
     Related source file is "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\ram_peripheals.vhd".
+WARNING:Xst:647 - Input <address<7:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 1-bit register for signal <write_en_Clk_DFF_9>.
     Found 8-bit register for signal <contents_ram<1>>.
     Found 8-bit register for signal <contents_ram<2>>.
@@ -411,8 +412,8 @@ Speed Grade: -3
 
    Minimum period: 3.639ns (Maximum Frequency: 274.835MHz)
    Minimum input arrival time before clock: 6.313ns
-   Maximum output required time after clock: 4.854ns
-   Maximum combinational path delay: 5.759ns
+   Maximum output required time after clock: 4.956ns
+   Maximum combinational path delay: 5.656ns
 
 Timing Details:
 ---------------
@@ -467,7 +468,7 @@ Offset:              6.313ns (Levels of Logic = 3)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
   Total number of paths / destination ports: 32 / 16
 -------------------------------------------------------------------------
-Offset:              4.854ns (Levels of Logic = 2)
+Offset:              4.956ns (Levels of Logic = 2)
   Source:            periph_ram/write_en_Clk_DFF_9 (FF)
   Destination:       databus<7> (PAD)
   Source Clock:      Clk rising
@@ -476,18 +477,18 @@ Offset:              4.854ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              9   0.447   0.830  periph_ram/write_en_Clk_DFF_9 (periph_ram/write_en_Clk_DFF_9)
-     LUT2:I1->O            8   0.205   0.802  N91 (N9)
+     FDC:C->Q              9   0.447   0.934  periph_ram/write_en_Clk_DFF_9 (periph_ram/write_en_Clk_DFF_9)
+     LUT2:I0->O            8   0.203   0.802  N91 (N9)
      IOBUF:T->IO               2.571          databus_7_IOBUF (databus<7>)
     ----------------------------------------
-    Total                      4.854ns (3.223ns logic, 1.631ns route)
-                                       (66.4% logic, 33.6% route)
+    Total                      4.956ns (3.221ns logic, 1.735ns route)
+                                       (65.0% logic, 35.0% route)
 
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 16 / 8
 -------------------------------------------------------------------------
-Delay:               5.759ns (Levels of Logic = 3)
+Delay:               5.656ns (Levels of Logic = 3)
   Source:            oe (PAD)
   Destination:       databus<7> (PAD)
 
@@ -495,12 +496,12 @@ Delay:               5.759ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            10   1.222   0.961  oe_IBUF (oe_IBUF)
-     LUT2:I0->O            8   0.203   0.802  N91 (N9)
+     IBUF:I->O            10   1.222   0.857  oe_IBUF (oe_IBUF)
+     LUT2:I1->O            8   0.205   0.802  N91 (N9)
      IOBUF:T->IO               2.571          databus_7_IOBUF (databus<7>)
     ----------------------------------------
-    Total                      5.759ns (3.996ns logic, 1.762ns route)
-                                       (69.4% logic, 30.6% route)
+    Total                      5.656ns (3.998ns logic, 1.658ns route)
+                                       (70.7% logic, 29.3% route)
 
 =========================================================================
 
@@ -518,14 +519,14 @@ Clk            |    3.639|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.83 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.21 secs
  
 --> 
 
-Total memory usage is 292428 kilobytes
+Total memory usage is 292940 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    1 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
 Number of infos    :    2 (   0 filtered)
 

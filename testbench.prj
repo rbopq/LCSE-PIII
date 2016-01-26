@@ -1,0 +1,3 @@
+vhdl work "PIC_pkg.vhd"
+vhdl work "ALU.vhd"
+vhdl work "tb_ALU.vhd"

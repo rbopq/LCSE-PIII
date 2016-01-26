@@ -81,7 +81,7 @@ signal CurrentState, NextState : State ;
 begin
 
 -- Lógica de cálculo de salidas y microinstrucciones
-calculo_salidas: process(CurrentState)
+calculo_salidas: process(CurrentState, ROM_Data, Reg_instruct, Reg_operand, prog_count, Index_Reg, FlagZ)
 begin
 	ROM_Addr <= (others => 'Z');
 	RAM_Addr <= (others => 'Z');
@@ -100,16 +100,18 @@ begin
 
 	case CurrentState is
 		when Ini=>
-			EN_prog_count<='1';
 			
 		when Sleep=>
 			DMA_ACK <= '1';
 	 
 		when Get_instruct=>
 			EN_prog_count<='1';
+			ROM_Addr<=prog_count;
 			Reg_instruct<=ROM_Data;
 			 
 		when Get_operand=>
+			EN_prog_count<='1';
+			ROM_Addr<=prog_count;
 			Reg_operand<=ROM_Data;
 			 
 		when Execute=>
@@ -147,9 +149,11 @@ begin
 				when TYPE_2 =>
 					case Reg_instruct (5 downto 0) is
 						when JMP_UNCOND =>
-								set_prog_count <= '1';
+							EN_prog_count<='1';
+							set_prog_count <= '1';
 						when JMP_COND =>
 							if FlagZ = '1' then
+								EN_prog_count<='1';
 								set_prog_count <= '1';
 							end if;
 						when others=>
@@ -189,19 +193,19 @@ begin
 									case Reg_instruct(2 downto 0) is
 										when DST_A =>
 											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
-											RAM_Write <= '0';
+											RAM_OE <= '1';
 											ALU_op<=op_lda;				
 										when DST_B =>
 											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
-											RAM_Write <= '0';
+											RAM_OE <= '1';
 											ALU_op<=op_ldb;				
 										when DST_INDX =>
 											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));
-											RAM_Write <= '0';
+											RAM_OE <= '1';
 											ALU_op<=op_ldid;
 										when DST_ACC =>
 											RAM_Addr <= std_logic_vector(unsigned(Index_Reg)+unsigned(Reg_operand(7 downto 0)));				
-											RAM_Write <= '0';
+											RAM_OE <= '1';
 											ALU_op<=op_ldacc;
 										when others=>
 									end case;							
@@ -209,19 +213,19 @@ begin
 									case Reg_instruct(2 downto 0) is
 										when DST_A =>
 											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
-											RAM_Write <= '0';
+											RAM_OE <= '1';
 											ALU_op<=op_lda;				
 										when DST_B =>
 											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
-											RAM_Write <= '0';
+											RAM_OE <= '1';
 											ALU_op<=op_ldb;				
 										when DST_INDX =>
 											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));
-											RAM_Write <= '0';
+											RAM_OE <= '1';
 											ALU_op<=op_ldid;
 										when DST_ACC =>
 											RAM_Addr <= std_logic_vector(unsigned(Reg_operand(7 downto 0)));					
-											RAM_Write <= '0';
+											RAM_OE <= '1';
 											ALU_op<=op_ldacc;
 										when others=>
 									end case;							
@@ -252,7 +256,8 @@ begin
 						when others=>		
 					end case;	
 				when TYPE_4 =>
-					IS_stall<='1';
+					--IS_stall<='1';
+					Send_comm<='1'; -- Señal de envío por DMA
 				when others =>
 			end case;			 
 		when Stall=>
@@ -279,7 +284,7 @@ transicion_estados:process(CurrentState, DMA_RQ, DMA_READY, Is_stall, Reg_instru
 				  end if;
 				  
 			 when Get_instruct=>
-				  if Reg_instruct(7 downto 6) = TYPE_1 then -- Transición si la pila del RX232 no está vacía
+				  if Reg_instruct(7 downto 6) = TYPE_1 or Reg_instruct(7 downto 6) = TYPE_4 then -- Transición si la pila del RX232 no está vacía
 						NextState <= Execute;
 				  else
 						NextState <= Get_operand;
@@ -290,7 +295,7 @@ transicion_estados:process(CurrentState, DMA_RQ, DMA_READY, Is_stall, Reg_instru
 				  NextState <= Execute;
 				  
 			 when Execute=>
-				  if Is_stall = '1' then -- Transición si la pila del RX232 no está vacía
+				  if Reg_instruct(7 downto 6) = TYPE_4 then -- Transición si la pila del RX232 no está vacía
 						NextState <= Stall;
 				  else
 						NextState <= Ini;
@@ -326,22 +331,15 @@ begin
 	elsif Clk'event and Clk = '1' then
 		if EN_prog_count = '1' then --Enable
 			if set_prog_count='1' then
-				--prog_count <=Reg_operand;
-				ROM_Addr<=Reg_operand;
+				prog_count <=Reg_operand;
 			else
 				prog_count <=std_logic_vector(unsigned(prog_count) + 1);
-				ROM_Addr<=prog_count;
-
 			end if;	
 		end if;
 	end if; 	
 end process;
 
---Databus <= Databus_temp when Databus_using='1' else (others => 'Z');
---RAM_Addr <= RAM_Addr when Databus_using='1' else (others => 'Z');
---RAM_CS <= 'Z' when Databus_using='1' else 'Z';
---RAM_OE <= 'Z' when Databus_using='1' else 'Z';
---RAM_Write <= RAM_Write when Databus_using='1' else 'Z';
+
 
 
 	

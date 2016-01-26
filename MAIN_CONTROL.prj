@@ -1,0 +1,2 @@
+vhdl work "PIC_pkg.vhd"
+vhdl work "main_control.vhd"

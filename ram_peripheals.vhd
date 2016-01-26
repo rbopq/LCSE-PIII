@@ -29,72 +29,66 @@ PORT(
 		address  : in    std_logic_vector(7 downto 0); -- Bus de direcciónes de memoria
 		databus  : inout std_logic_vector(7 downto 0); -- Bus de datos
 		switches : out std_logic_vector(7 downto 0); -- Estado de los interruptores
-		temp_l	: out std_logic_vector(3 downto 0); -- BCD dígito bajo
-		temp_h	: out std_logic_vector(3 downto 0) -- BCD dígito alto
+		temp_l	: out std_logic_vector(6 downto 0); -- BCD dígito bajo
+		temp_h	: out std_logic_vector(6 downto 0); -- BCD dígito alto
+		cs 		: in std_logic	-- Chip select
 	);
 END ram_peripheals;
 
 architecture Behavioral of ram_peripheals is
 
 SIGNAL contents_ram : array8_ram(0 to 63); -- Señal que representa el contenido de la RAM
-SIGNAL decenas, unidades : unsigned(3 downto 0); -- Señales auxiliares para el cálculo de los dígitos BCD
-SIGNAL reg_aux: std_logic_vector(7 downto 0);
+SIGNAL decenas		: unsigned(6 downto 0):= to_unsigned(0,7);
+SIGNAL unidades 	: unsigned(6 downto 0):= to_unsigned(0,7); -- Señales auxiliares para el cálculo de los dígitos BCD
+SIGNAL reg_aux: std_logic_vector(7 downto 0):=X"00";
 
 begin
 
 -------------------------------------------------------------------------
 -- Bloque de memoria de 64 palabras de 8 bits para periféricos
 -------------------------------------------------------------------------
-ram_64_bytes : process (Clk,Reset)  -- no reset
+ram_64_bytes : process (Clk,Reset)  
 begin
 	databus<=(others=>'Z');
 	if Reset = '0' then
 		for i in 0 to	63 loop
 			contents_ram(i)<=(others => '0');
 		end loop;
-		--unidades<=to_unsigned(0, 4);
-		--decenas<=to_unsigned(0, 4);
-		
-	else 
-		if clk'event and clk = '1' then	
-			if write_en = '1' then
-				contents_ram(to_integer(unsigned(address))) <= databus;
-			elsif oe ='1' then
-				databus <= contents_ram(to_integer(unsigned(address)));
+	elsif clk'event and clk = '1' then	
+			if cs ='1' then
+				if write_en = '1' then
+					contents_ram(to_integer(unsigned(address))) <= databus;
+				end if;
+				switches<=contents_ram(16); 
+				reg_aux<=contents_ram(49); --registramos la posición 49 para obtener el valor de los termostatos en BCD
 			end if;
-			switches<=contents_ram(16); 
-			--
-		end if;
 	end if;
 end process;
 
+databus <= contents_ram(to_integer(unsigned(address))) when oe='1' and cs='1' else (others =>'Z');
 
 -------------------------------------------------------------------------
 -- Proceso para el cálculo de los digitos BCD de los termostatos
 -------------------------------------------------------------------------
---cod_asciiToBcd: process(reg_aux, decenas, unidades)
---begin	
---	for index in 0 to 7 loop
---		if ( decenas>= 5) then
---			decenas <= decenas + 3;
---		elsif ( unidades>= 5) then
---			unidades <= unidades + 3;
---		end if;
---		decenas <= decenas sll 1;
---		decenas(0) <= unidades(3);
---		unidades <= unidades sll 1;
---		unidades(0) <= reg_aux(index);
---	end loop;
---	temp_h <= std_logic_vector(decenas);
---	temp_l <= std_logic_vector(unidades);
---	
---end process;
+cod_asciiToBcd: process(reg_aux, decenas, unidades)
+begin	
+	for index in 0 to 7 loop
+		if ( decenas>= 5) then
+			decenas <= decenas + 3;
+		elsif ( unidades>= 5) then
+			unidades <= unidades + 3;
+		end if;
+		
+		decenas <= decenas sll 1;
+		decenas(0) <= unidades(3);
+		unidades <= unidades sll 1;
+		unidades(0) <= reg_aux(index);
+	end loop;
+	temp_h <= std_logic_vector(decenas);
+	temp_l <= std_logic_vector(unidades);
+	
+end process;
 
--------------------------------------------------------------------------
--- Bloque de memoria de 64 palabras de 8 bits para periféricos
--------------------------------------------------------------------------
-
--------------------------------------------------------------------------
 
 end Behavioral;
 

@@ -1,0 +1,684 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.24 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.24 secs
+ 
+--> Reading design: MAIN_CONTROL.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "MAIN_CONTROL.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "MAIN_CONTROL"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : MAIN_CONTROL
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\PIC_pkg.vhd" into library work
+Parsing package <PIC_pkg>.
+Parsing package body <PIC_pkg>.
+Parsing VHDL file "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" into library work
+Parsing entity <MAIN_CONTROL>.
+Parsing architecture <Behavioral> of entity <main_control>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <MAIN_CONTROL> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 117: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 119: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 148: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 152: flagz should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 158: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 160: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 162: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 172: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 174: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 177: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 180: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 183: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 189: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 191: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 195: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 199: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 203: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 209: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 211: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 215: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 219: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 223: reg_operand should be on the sensitivity list of the process
+INFO:HDLCompiler:679 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 228. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 231: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 233: reg_instruct should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 236: index_reg should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 240: reg_operand should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 245: index_reg should be on the sensitivity list of the process
+INFO:HDLCompiler:679 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 252. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 256. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 259. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:1127 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 84: Assignment to is_stall ignored, since the identifier is never used
+INFO:HDLCompiler:679 - "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd" Line 305. Case statement is complete. others clause is never selected
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <MAIN_CONTROL>.
+    Related source file is "C:\Users\rboq\Documents\LCSE\PRACTICAIII\LCSE-PIII\main_control.vhd".
+WARNING:Xst:647 - Input <FlagC> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <FlagN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <FlagE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 3-bit register for signal <CurrentState>.
+    Found 12-bit register for signal <prog_count>.
+    Found 12-bit register for signal <_n0257>.
+    Found finite state machine <FSM_0> for signal <CurrentState>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 6                                              |
+    | Clock              | Clk (rising_edge)                              |
+    | Reset              | Reset (negative)                               |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | ini                                            |
+    | Power Up State     | ini                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit adder for signal <Index_Reg[7]_Reg_operand[7]_add_20_OUT> created at line 245.
+    Found 12-bit adder for signal <prog_count[11]_GND_5_o_add_291_OUT> created at line 1241.
+    Found 64x5-bit Read Only RAM for signal <Reg_instruct[5]_GND_5_o_wide_mux_0_OUT>
+    Found 3-bit 4-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_16_OUT> created at line 160.
+    Found 5-bit 4-to-1 multiplexer for signal <Reg_instruct[7]_GND_5_o_wide_mux_32_OUT> created at line 117.
+    Found 1-bit 3-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_18_OUT<7>> created at line 158.
+    Found 1-bit 3-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_18_OUT<6>> created at line 158.
+    Found 1-bit 3-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_18_OUT<5>> created at line 158.
+    Found 1-bit 3-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_18_OUT<4>> created at line 158.
+    Found 1-bit 3-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_18_OUT<3>> created at line 158.
+    Found 1-bit 3-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_18_OUT<2>> created at line 158.
+    Found 1-bit 3-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_18_OUT<1>> created at line 158.
+    Found 1-bit 3-to-1 multiplexer for signal <Reg_instruct[4]_Reg_instruct[2]_wide_mux_18_OUT<0>> created at line 158.
+    Found 1-bit tristate buffer for signal <RAM_Addr<7>> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_Addr<6>> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_Addr<5>> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_Addr<4>> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_Addr<3>> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_Addr<2>> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_Addr<1>> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_Addr<0>> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_CS> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_Write> created at line 84
+    Found 1-bit tristate buffer for signal <RAM_OE> created at line 84
+    Found 1-bit tristate buffer for signal <Databus<7>> created at line 84
+    Found 1-bit tristate buffer for signal <Databus<6>> created at line 84
+    Found 1-bit tristate buffer for signal <Databus<5>> created at line 84
+    Found 1-bit tristate buffer for signal <Databus<4>> created at line 84
+    Found 1-bit tristate buffer for signal <Databus<3>> created at line 84
+    Found 1-bit tristate buffer for signal <Databus<2>> created at line 84
+    Found 1-bit tristate buffer for signal <Databus<1>> created at line 84
+    Found 1-bit tristate buffer for signal <Databus<0>> created at line 84
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_instruct<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_instruct<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_instruct<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_instruct<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_instruct<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_instruct<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_instruct<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_instruct<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <Reg_operand<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  24 D-type flip-flop(s).
+	inferred  20 Latch(s).
+	inferred  81 Multiplexer(s).
+	inferred  19 Tristate(s).
+	inferred   1 Finite State Machine(s).
+Unit <MAIN_CONTROL> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 64x5-bit single-port Read Only RAM                    : 1
+# Adders/Subtractors                                   : 2
+ 12-bit adder                                          : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 2
+ 12-bit register                                       : 2
+# Latches                                              : 20
+ 1-bit latch                                           : 20
+# Multiplexers                                         : 81
+ 1-bit 2-to-1 multiplexer                              : 66
+ 1-bit 3-to-1 multiplexer                              : 8
+ 12-bit 2-to-1 multiplexer                             : 1
+ 3-bit 4-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 3
+ 5-bit 4-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# Tristates                                            : 19
+ 1-bit tristate buffer                                 : 19
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <MAIN_CONTROL>.
+The following registers are absorbed into counter <prog_count>: 1 register on signal <prog_count>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_Reg_instruct[5]_GND_5_o_wide_mux_0_OUT> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 5-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <Reg_instruct<5:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <MAIN_CONTROL> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 64x5-bit single-port distributed Read Only RAM        : 1
+# Adders/Subtractors                                   : 1
+ 8-bit adder                                           : 1
+# Counters                                             : 1
+ 12-bit up counter                                     : 1
+# Registers                                            : 12
+ Flip-Flops                                            : 12
+# Multiplexers                                         : 81
+ 1-bit 2-to-1 multiplexer                              : 66
+ 1-bit 3-to-1 multiplexer                              : 8
+ 12-bit 2-to-1 multiplexer                             : 1
+ 3-bit 4-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 3
+ 5-bit 4-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <CurrentState[1:3]> with user encoding.
+--------------------------
+ State        | Encoding
+--------------------------
+ ini          | 000
+ sleep        | 001
+ get_instruct | 010
+ get_operand  | 011
+ execute      | 100
+ stall        | 101
+--------------------------
+
+Optimizing unit <MAIN_CONTROL> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block MAIN_CONTROL, actual ratio is 1.
+Latch Reg_operand_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch Reg_operand_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch Reg_operand_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch Reg_operand_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch Reg_operand_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch Reg_operand_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch Reg_operand_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch Reg_operand_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch Reg_instruct_5 has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 27
+ Flip-Flops                                            : 27
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : MAIN_CONTROL.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 142
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 11
+#      LUT2                        : 14
+#      LUT3                        : 33
+#      LUT4                        : 5
+#      LUT5                        : 22
+#      LUT6                        : 14
+#      MUXCY                       : 18
+#      MUXF7                       : 1
+#      VCC                         : 1
+#      XORCY                       : 20
+# FlipFlops/Latches                : 56
+#      FDC                         : 3
+#      FDCE                        : 12
+#      FDE                         : 12
+#      LD                          : 29
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 62
+#      IBUF                        : 24
+#      OBUF                        : 19
+#      OBUFT                       : 19
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              43  out of  18224     0%  
+ Number of Slice LUTs:                  101  out of   9112     1%  
+    Number used as Logic:               101  out of   9112     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    117
+   Number with an unused Flip Flop:      74  out of    117    63%  
+   Number with an unused LUT:            16  out of    117    13%  
+   Number of fully used LUT-FF pairs:    27  out of    117    23%  
+   Number of unique control sets:         5
+
+IO Utilization: 
+ Number of IOs:                          66
+ Number of bonded IOBs:                  63  out of    232    27%  
+    IOB Flip Flops/Latches:              13
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+--------------------------------------------------------------+------------------------+-------+
+Clock Signal                                                  | Clock buffer(FF name)  | Load  |
+--------------------------------------------------------------+------------------------+-------+
+CurrentState[2]_PWR_103_o_Mux_243_o(CurrentState__n0576<1>1:O)| NONE(*)(Reg_instruct_7)| 9     |
+CurrentState[2]_PWR_111_o_Mux_259_o(CurrentState__n0576<2>1:O)| NONE(*)(Reg_operand_7) | 20    |
+Clk                                                           | BUFGP                  | 27    |
+--------------------------------------------------------------+------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 3.787ns (Maximum Frequency: 264.054MHz)
+   Minimum input arrival time before clock: 4.407ns
+   Maximum output required time after clock: 6.712ns
+   Maximum combinational path delay: 7.471ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 3.787ns (frequency: 264.054MHz)
+  Total number of paths / destination ports: 185 / 51
+-------------------------------------------------------------------------
+Delay:               3.787ns (Levels of Logic = 2)
+  Source:            CurrentState_FSM_FFd1 (FF)
+  Destination:       prog_count_0 (FF)
+  Source Clock:      Clk rising
+  Destination Clock: Clk rising
+
+  Data Path: CurrentState_FSM_FFd1 to prog_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             11   0.447   0.987  CurrentState_FSM_FFd1 (CurrentState_FSM_FFd1)
+     LUT2:I0->O            5   0.203   0.715  _n03251 (_n0325)
+     LUT6:I5->O           12   0.205   0.908  _n0563_inv1_cepot (_n0563_inv1_cepot)
+     FDCE:CE                   0.322          prog_count_0
+    ----------------------------------------
+    Total                      3.787ns (1.177ns logic, 2.610ns route)
+                                       (31.1% logic, 68.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CurrentState[2]_PWR_103_o_Mux_243_o'
+  Total number of paths / destination ports: 9 / 9
+-------------------------------------------------------------------------
+Offset:              1.942ns (Levels of Logic = 1)
+  Source:            ROM_Data<5> (PAD)
+  Destination:       Reg_instruct_5 (LATCH)
+  Destination Clock: CurrentState[2]_PWR_103_o_Mux_243_o falling
+
+  Data Path: ROM_Data<5> to Reg_instruct_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.222   0.683  ROM_Data_5_IBUF (ROM_Data_5_IBUF)
+     LD:D                      0.037          Reg_instruct_5
+    ----------------------------------------
+    Total                      1.942ns (1.259ns logic, 0.683ns route)
+                                       (64.8% logic, 35.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CurrentState[2]_PWR_111_o_Mux_259_o'
+  Total number of paths / destination ports: 20 / 20
+-------------------------------------------------------------------------
+Offset:              1.942ns (Levels of Logic = 1)
+  Source:            ROM_Data<5> (PAD)
+  Destination:       Reg_operand_5 (LATCH)
+  Destination Clock: CurrentState[2]_PWR_111_o_Mux_259_o falling
+
+  Data Path: ROM_Data<5> to Reg_operand_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.222   0.683  ROM_Data_5_IBUF (ROM_Data_5_IBUF)
+     LD:D                      0.037          Reg_operand_5
+    ----------------------------------------
+    Total                      1.942ns (1.259ns logic, 0.683ns route)
+                                       (64.8% logic, 35.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 55 / 54
+-------------------------------------------------------------------------
+Offset:              4.407ns (Levels of Logic = 4)
+  Source:            FlagZ (PAD)
+  Destination:       ROM_Addr_0 (FF)
+  Destination Clock: Clk rising
+
+  Data Path: FlagZ to ROM_Addr_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.617  FlagZ_IBUF (FlagZ_IBUF)
+     LUT2:I1->O            1   0.205   0.944  _n03251_SW0 (N24)
+     LUT6:I0->O           12   0.203   0.909  Mmux_set_prog_count1 (set_prog_count)
+     LUT3:I2->O            1   0.205   0.000  Mmux_prog_count[11]_Reg_operand[11]_mux_292_OUT121 (prog_count[11]_Reg_operand[11]_mux_292_OUT<9>)
+     FDE:D                     0.102          ROM_Addr_9
+    ----------------------------------------
+    Total                      4.407ns (1.937ns logic, 2.470ns route)
+                                       (44.0% logic, 56.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 75 / 35
+-------------------------------------------------------------------------
+Offset:              6.085ns (Levels of Logic = 3)
+  Source:            CurrentState_FSM_FFd3 (FF)
+  Destination:       Databus<7> (PAD)
+  Source Clock:      Clk rising
+
+  Data Path: CurrentState_FSM_FFd3 to Databus<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             13   0.447   0.933  CurrentState_FSM_FFd3 (CurrentState_FSM_FFd3)
+     LUT4:I3->O            1   0.205   0.924  CurrentState[2]_PWR_70_o_Mux_177_o_inv_SW0 (N12)
+     LUT6:I1->O            8   0.203   0.802  CurrentState[2]_PWR_70_o_Mux_177_o_inv (CurrentState[2]_PWR_70_o_Mux_177_o_inv)
+     OBUFT:T->O                2.571          Databus_7_OBUFT (Databus<7>)
+    ----------------------------------------
+    Total                      6.085ns (3.426ns logic, 2.659ns route)
+                                       (56.3% logic, 43.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CurrentState[2]_PWR_103_o_Mux_243_o'
+  Total number of paths / destination ports: 250 / 22
+-------------------------------------------------------------------------
+Offset:              6.666ns (Levels of Logic = 3)
+  Source:            Reg_instruct_2 (LATCH)
+  Destination:       Databus<7> (PAD)
+  Source Clock:      CurrentState[2]_PWR_103_o_Mux_243_o falling
+
+  Data Path: Reg_instruct_2 to Databus<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q              28   0.498   1.463  Reg_instruct_2 (Reg_instruct_2)
+     LUT4:I1->O            1   0.205   0.924  CurrentState[2]_PWR_70_o_Mux_177_o_inv_SW0 (N12)
+     LUT6:I1->O            8   0.203   0.802  CurrentState[2]_PWR_70_o_Mux_177_o_inv (CurrentState[2]_PWR_70_o_Mux_177_o_inv)
+     OBUFT:T->O                2.571          Databus_7_OBUFT (Databus<7>)
+    ----------------------------------------
+    Total                      6.666ns (3.477ns logic, 3.189ns route)
+                                       (52.2% logic, 47.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CurrentState[2]_PWR_111_o_Mux_259_o'
+  Total number of paths / destination ports: 96 / 16
+-------------------------------------------------------------------------
+Offset:              6.712ns (Levels of Logic = 12)
+  Source:            Reg_operand_0 (LATCH)
+  Destination:       RAM_Addr<7> (PAD)
+  Source Clock:      CurrentState[2]_PWR_111_o_Mux_259_o falling
+
+  Data Path: Reg_operand_0 to RAM_Addr<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               4   0.498   0.684  Reg_operand_0 (Reg_operand_0)
+     LUT2:I1->O            1   0.205   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_lut<0> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<0> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<1> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<2> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<3> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<4> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<5> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<5>)
+     MUXCY:CI->O           0   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<6> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<6>)
+     XORCY:CI->O           2   0.180   0.721  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_xor<7> (Index_Reg[7]_Reg_operand[7]_add_20_OUT<7>)
+     LUT5:I3->O            1   0.203   0.580  Mmux_Reg_instruct[4]_Reg_instruct[4]_MUX_100_o131 (Mmux_Reg_instruct[4]_Reg_instruct[4]_MUX_100_o13)
+     LUT5:I4->O            1   0.205   0.579  Mmux_Reg_instruct[4]_Reg_instruct[4]_MUX_100_o133 (RAM_Addr_7_OBUFT)
+     OBUFT:I->O                2.571          RAM_Addr_7_OBUFT (RAM_Addr<7>)
+    ----------------------------------------
+    Total                      6.712ns (4.148ns logic, 2.563ns route)
+                                       (61.8% logic, 38.2% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 136 / 8
+-------------------------------------------------------------------------
+Delay:               7.471ns (Levels of Logic = 13)
+  Source:            Index_Reg<0> (PAD)
+  Destination:       RAM_Addr<7> (PAD)
+
+  Data Path: Index_Reg<0> to RAM_Addr<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.721  Index_Reg_0_IBUF (Index_Reg_0_IBUF)
+     LUT2:I0->O            1   0.203   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_lut<0> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<0> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<1> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<2> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<3> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<4> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<5> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<5>)
+     MUXCY:CI->O           0   0.019   0.000  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<6> (Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_cy<6>)
+     XORCY:CI->O           2   0.180   0.721  Madd_Index_Reg[7]_Reg_operand[7]_add_20_OUT_xor<7> (Index_Reg[7]_Reg_operand[7]_add_20_OUT<7>)
+     LUT5:I3->O            1   0.203   0.580  Mmux_Reg_instruct[4]_Reg_instruct[4]_MUX_100_o131 (Mmux_Reg_instruct[4]_Reg_instruct[4]_MUX_100_o13)
+     LUT5:I4->O            1   0.205   0.579  Mmux_Reg_instruct[4]_Reg_instruct[4]_MUX_100_o133 (RAM_Addr_7_OBUFT)
+     OBUFT:I->O                2.571          RAM_Addr_7_OBUFT (RAM_Addr<7>)
+    ----------------------------------------
+    Total                      7.471ns (4.870ns logic, 2.601ns route)
+                                       (65.2% logic, 34.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock Clk
+-----------------------------------+---------+---------+---------+---------+
+                                   | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------------+---------+---------+---------+---------+
+Clk                                |    3.787|         |         |         |
+CurrentState[2]_PWR_103_o_Mux_243_o|         |    4.694|         |         |
+CurrentState[2]_PWR_111_o_Mux_259_o|         |    1.717|         |         |
+-----------------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.19 secs
+ 
+--> 
+
+Total memory usage is 290828 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   51 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

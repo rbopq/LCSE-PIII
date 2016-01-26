@@ -1,0 +1,5 @@
+vhdl isim_temp "FIFO.vhd"
+vhdl isim_temp "ShiftRegister.vhd"
+vhdl isim_temp "rs232_tx.vhd"
+vhdl isim_temp "RS232_RX.vhd"
+vhdl isim_temp "RS232top.vhd"

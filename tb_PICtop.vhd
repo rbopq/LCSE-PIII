@@ -1,10 +1,13 @@
 
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
-USE IEEE.std_logic_arith.all;
-USE IEEE.std_logic_unsigned.all;
+use IEEE.NUMERIC_STD.ALL;
+
+--USE IEEE.std_logic_arith.all;
+--USE IEEE.std_logic_unsigned.all;
 
 USE work.PIC_pkg.all;
+USE work.RS232_test.all;
 
 entity PICtop_tb is
 end PICtop_tb;
@@ -65,12 +68,26 @@ begin  -- TestBench
   SEND_STUFF : process
   begin
      RS232_RX <= '1';
-     wait for 40 us;
+     wait for 100 us;
      Transmit(RS232_RX, X"49");
      wait for 40 us;
      Transmit(RS232_RX, X"34");
      wait for 40 us;
      Transmit(RS232_RX, X"31");
+	  
+	  wait for 1000 us;
+     Transmit(RS232_RX, X"30");
+     wait for 40 us;
+     Transmit(RS232_RX, X"45");
+     wait for 40 us;
+     Transmit(RS232_RX, X"67");
+	  
+	  wait for 1000 us;
+     Transmit(RS232_RX, X"44");
+     wait for 40 us;
+     Transmit(RS232_RX, X"98");
+     wait for 40 us;
+     Transmit(RS232_RX, X"AE");
      wait;
   end process SEND_STUFF;
    

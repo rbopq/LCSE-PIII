@@ -9,18 +9,17 @@
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/NEXYS_TOP - Behavioral C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|NEXYS_TOP.vhd/PIC_pkg</ClosedNode>
          <ClosedNode>/NEXYS_TOP - Behavioral C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|NEXYS_TOP.vhd/ram_top - ram - behavior/periph_ram - ram_peripheals - Behavioral</ClosedNode>
-         <ClosedNode>/NEXYS_TOP - Behavioral C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|NEXYS_TOP.vhd/top - RS232top - RTL</ClosedNode>
          <ClosedNode>/PICtop - behavior C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|PICtop.vhd/RS232_test</ClosedNode>
          <ClosedNode>/PICtop_tb - TestBench C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|tb_PICtop.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>NEXYS_TOP - Behavioral (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.vhd)</SelectedItem>
+         <SelectedItem>PICtop - behavior (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PICtop.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b7000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b70000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>NEXYS_TOP - Behavioral (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/NEXYS_TOP.vhd)</CurrentItem>
+      <CurrentItem>PICtop - behavior (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PICtop.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -31,13 +30,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -48,7 +47,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000001bc000000040101000100000000000000000000000064ffffffff000000810000000000000004000000a300000001000000000000002400000001000000000000006600000001000000000000008f0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000028e000000040101000100000000000000000000000064ffffffff000000810000000000000004000000a30000000100000000000000240000000100000000000000660000000100000000000001610000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>PIC_pkg.vhd</CurrentItem>
    </ItemView>
@@ -56,12 +55,14 @@
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
-      <SelectedItems/>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <SelectedItems>
+         <SelectedItem>RS232_test.vhd</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000000f8000000010001000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>PIC_pkg.vhd</CurrentItem>
+      <CurrentItem>RS232_test.vhd</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -76,16 +77,16 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Implement Design</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001ab000000010000000100000000000000000000000064ffffffff000000810000000000000001000001ab0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Implement Design</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Post-Route Simulation</CurrentView>
+   <CurrentView>Behavioral Simulation</CurrentView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_PACKAGE_BODY" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
@@ -114,15 +115,16 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/PIC_pkg C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|PIC_pkg.vhd</ClosedNode>
+         <ClosedNode>/PICtop_tb - TestBench C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|tb_PICtop.vhd/UUT - PICtop - behavior/RS232_PHY - RS232top - RTL</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>RS232top_TB - Testbench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd)</SelectedItem>
+         <SelectedItem>PICtop_tb - TestBench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_PICtop.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001cb000000020000000000000000000000000200000064ffffffff000000810000000300000002000001cb0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>RS232top_TB - Testbench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd)</CurrentItem>
+      <CurrentItem>PICtop_tb - TestBench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_PICtop.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -130,13 +132,13 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -194,13 +196,13 @@
          <ClosedNode>/RS232top_TB - Testbench C:|Users|rboq|Documents|LCSE|PRACTICAIII|LCSE-PIII|tb_RS232_DMA_RAM.vhd/UUT - NEXYS_TOP - Structure</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>RS232top_TB - Testbench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd)</SelectedItem>
+         <SelectedItem>tb_bloque_control - behavior (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000185000000020000000000000000000000000200000064ffffffff000000810000000300000002000001850000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a20000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>RS232top_TB - Testbench (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_RS232_DMA_RAM.vhd)</CurrentItem>
+      <CurrentItem>tb_bloque_control - behavior (C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/tb_bloque_control.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="PostRouteSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -221,12 +223,25 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Simulate Post-Place &amp; Route Model</SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Simulate Post-Place &amp; Route Model</CurrentItem>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_PACKAGE_DECL" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bc0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
    </ItemView>
 </Project>

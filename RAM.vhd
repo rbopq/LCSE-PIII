@@ -27,8 +27,8 @@ PORT (
    address  : in    std_logic_vector(7 downto 0); -- Bus de direcciones
    databus  : inout std_logic_vector(7 downto 0); -- Bus de datos
 	switches : out std_logic_vector(7 downto 0); -- Estado de los interruptores
-	temp_l	: out std_logic_vector(3 downto 0); -- BCD dígito bajo
-	temp_h	: out std_logic_vector(3 downto 0)); -- BCD dígito alto
+	temp_l	: out std_logic_vector(6 downto 0); -- BCD dígito bajo
+	temp_h	: out std_logic_vector(6 downto 0)); -- BCD dígito alto
 END ram;
 
 ARCHITECTURE behavior OF ram IS
@@ -42,8 +42,9 @@ COMPONENT ram_peripheals
 				address  : in    std_logic_vector(7 downto 0);
 				databus  : inout std_logic_vector(7 downto 0);
 				switches : out std_logic_vector(7 downto 0);
-				temp_l	: out std_logic_vector(3 downto 0);
-				temp_h	: out std_logic_vector(3 downto 0)--;
+				temp_l	: out std_logic_vector(6 downto 0);
+				temp_h	: out std_logic_vector(6 downto 0);
+				cs			: in std_logic--;
 		  );
 END COMPONENT;
 
@@ -53,26 +54,29 @@ COMPONENT ram_gp
 				write_en : in    std_logic;
 				oe       : in    std_logic;
 				address  : in    std_logic_vector(7 downto 0);
-				databus  : inout std_logic_vector(7 downto 0)
+				databus  : inout std_logic_vector(7 downto 0);
+				cs			: in std_logic
 		  );
 END COMPONENT;
 
--- PERIPHEALS RAM
-signal write_en_per : std_logic;
-signal oe_per : std_logic;
-signal address_per : std_logic_vector(5 downto 0);
-signal databus_per : std_logic_vector(7 downto 0);
-signal switches_per : std_logic_vector(7 downto 0);
-signal temp_l_per	: std_logic_vector(3 downto 0);
-signal temp_h_per : std_logic_vector(3 downto 0);
-
--- GP RAM
-signal write_en_gp : std_logic;
-signal oe_gp : std_logic;
+---- PERIPHEALS RAM
+--signal write_en_per : std_logic;
+--signal oe_per : std_logic;
+signal address_per : std_logic_vector(7 downto 0);
+--signal databus_per : std_logic_vector(7 downto 0);
+--signal switches_per : std_logic_vector(7 downto 0);
+signal cs_gp:std_logic;
+--
+---- GP RAM
+--signal write_en_gp : std_logic;
+--signal oe_gp : std_logic;
 signal address_gp : std_logic_vector(7 downto 0);
-signal databus_gp : std_logic_vector(7 downto 0);
+--signal databus_gp : std_logic_vector(7 downto 0);
+signal cs_per:std_logic;
 
-
+--
+signal oe_estado : std_logic_vector(1 downto 0):="00";
+signal oe_pulso: std_logic:='0';
 
 BEGIN
 
@@ -86,7 +90,9 @@ periph_ram:ram_peripheals port map(
 		databus=>databus, 
 		switches=>switches, 
 		temp_l=>temp_l,	
-		temp_h=>temp_h);
+		temp_h=>temp_h,
+		cs=>cs_per
+		);
 		
 gp_ram:ram_gp port map(
 		--Clk => clk_nexys,
@@ -94,7 +100,43 @@ gp_ram:ram_gp port map(
 		write_en =>Write_en,
 		oe =>OE,
 		address=>Address, 
-		databus=>databus);	
+		databus=>databus,
+		cs=> cs_gp
+		);	
+		
+cs_gp<='1' when unsigned(Address)>=64 and unsigned(Address)<255 else 'Z';
+cs_per<='1'when unsigned(Address)>=0 and unsigned(Address)<64 else 'Z';
+
+--gen_pulso_OE:process (Clk, Reset, oe, oe_estado)
+--begin	
+--	if Reset='0' then
+--		oe_estado <="00";
+--		oe_pulso<='0';
+--	elsif Clk'event and Clk = '1' then
+--		case oe_estado is
+--			when "00" =>
+--				oe_pulso<='0';
+--				if oe ='1' then
+--					oe_estado<="01";
+--				end if;
+--				
+--			when "01" =>
+--				oe_pulso<='1';
+--				oe_estado<="10";
+--				
+--			when "10" =>
+--				oe_pulso<='0';
+--				if oe ='0' then
+--					oe_estado<="00";
+--				end if;
+--				
+--			when others =>
+--				oe_pulso<='0';
+--		end case;
+--			
+--	end if;
+--end process;	
+--Address_per<=Address when unsigned(Address)<64 else (others=>'Z');
 		
 --periph_ram	: ram_peripheals  PORT MAP (Clk,Reset,write_en_per,oe_per,address_per,databus_per,switches,temp_l,temp_h);--CS_ram_periph);
 --gp_ram		: ram_gp	 PORT MAP (Clk,write_en_gp,oe_gp,address_gp,databus_gp);
@@ -103,6 +145,17 @@ gp_ram:ram_gp port map(
 -------------------------------------------------------------------------
 -- Proceso para habilitar o deshabilitar segmentos de RAM
 ---------------------------------------------------------------------------
+--cs_gen: process (address)
+--begin
+--	cs_per<='Z';
+--	cs_gp<='Z';
+--
+--	if unsigned(address)>= 0 and unsigned(address)<64 then
+--		cs_per<='1';
+--	elsif unsigned(address)>= 64 and unsigned(address)<255 then
+--		cs_gp<='1';
+--	end if;
+--end process;	
 --cs_ram : process (databus, address, oe, write_en, databus_gp, databus_per, address_per, address_gp, oe_per, oe_gp, write_en_per, write_en_gp)  -- no reset
 --begin
 --	databus<=(others=>'Z');
