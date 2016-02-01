@@ -59,35 +59,72 @@ begin
 				if write_en = '1' then
 					contents_ram(to_integer(unsigned(address))) <= databus;
 				end if;
-				switches<=contents_ram(16); 
-				reg_aux<=contents_ram(49); --registramos la posición 49 para obtener el valor de los termostatos en BCD
+			-- Salidas periféricos	
+				switches(0)<=contents_ram(16)(0); 
+				switches(1)<=contents_ram(17)(0); 
+				switches(2)<=contents_ram(18)(0); 
+				switches(3)<=contents_ram(19)(0);
+				switches(4)<=contents_ram(20)(0); 
+				switches(5)<=contents_ram(21)(0); 
+				switches(6)<=contents_ram(22)(0); 
+				switches(7)<=contents_ram(23)(0);	
+				
+				case contents_ram(49)(3 downto 0) is
+					when "0000" =>
+						temp_l <="0111111";
+					when "0001" =>
+						temp_l <="0000110";
+					when "0010" =>
+						temp_l <="1011011";
+					when "0011" =>
+						temp_l <="1001111";
+					when "0100" =>
+						temp_l <="1100110";
+					when "0101" =>
+						temp_l <="1100110";
+					when "0110" =>
+						temp_l <="1111101";
+					when "0111" =>
+						temp_l <="0000111";
+					when "1000" =>
+						temp_l <="1111111";
+					when "1001" =>
+						temp_l <="1101111";
+					when others =>
+						temp_l <="0000000";
+				end case;
+				
+				case contents_ram(49)(7 downto 4) is
+					when "0000" =>
+						temp_h <="0111111";
+					when "0001" =>
+						temp_h <="0000110";
+					when "0010" =>
+						temp_h <="1011011";
+					when "0011" =>
+						temp_h <="1001111";
+					when "0100" =>
+						temp_h <="1100110";
+					when "0101" =>
+						temp_h <="1100110";
+					when "0110" =>
+						temp_h <="1111101";
+					when "0111" =>
+						temp_h <="0000111";
+					when "1000" =>
+						temp_h <="1111111";
+					when "1001" =>
+						temp_h <="1101111";
+					when others =>
+						temp_h <="0000000";
+				end case;
 			end if;
 	end if;
 end process;
 
 databus <= contents_ram(to_integer(unsigned(address))) when oe='1' and cs='1' else (others =>'Z');
 
--------------------------------------------------------------------------
--- Proceso para el cálculo de los digitos BCD de los termostatos
--------------------------------------------------------------------------
-cod_asciiToBcd: process(reg_aux, decenas, unidades)
-begin	
-	for index in 0 to 7 loop
-		if ( decenas>= 5) then
-			decenas <= decenas + 3;
-		elsif ( unidades>= 5) then
-			unidades <= unidades + 3;
-		end if;
-		
-		decenas <= decenas sll 1;
-		decenas(0) <= unidades(3);
-		unidades <= unidades sll 1;
-		unidades(0) <= reg_aux(index);
-	end loop;
-	temp_h <= std_logic_vector(decenas);
-	temp_l <= std_logic_vector(unidades);
-	
-end process;
+
 
 
 end Behavioral;

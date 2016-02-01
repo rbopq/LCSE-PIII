@@ -17,7 +17,7 @@ entity PICtop is
     Temp_H   : out std_logic_vector(6 downto 0));  -- Most significant figure of T_STAT
 end PICtop;
 
-architecture behavior of PICtop is
+	architecture behavior of PICtop is
 
   component RS232top
     port (
@@ -52,10 +52,10 @@ architecture behavior of PICtop is
          DMA_READY : IN  std_logic;
          ALU_op : OUT  alu_op;
          Index_Reg : IN  std_logic_vector(7 downto 0);
-         FlagZ : IN  std_logic;
-         FlagC : IN  std_logic;
-         FlagN : IN  std_logic;
-         FlagE : IN  std_logic
+         FlagZ : IN  std_logic--;
+--         FlagC : IN  std_logic;
+--         FlagN : IN  std_logic;
+--         FlagE : IN  std_logic
         );
     END COMPONENT;
 	
@@ -180,10 +180,10 @@ begin  -- behavior
           DMA_READY => DMA_READY,
           ALU_op => ALU_op,
           Index_Reg => Index_Reg,
-          FlagZ => FlagZ,
-          FlagC => FlagC,
-          FlagN => FlagN,
-          FlagE => FlagE
+          FlagZ => FlagZ--,
+--          FlagC => FlagC,
+--          FlagN => FlagN,
+--          FlagE => FlagE
         );
 
    alu_comp: ALU PORT MAP (

@@ -2,32 +2,29 @@ Command line:
    PICtop_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  60029
+     -socket  63351
 
-Wed Jan 27 00:18:13 2016
+Mon Feb 01 01:41:45 2016
 
 
- Elaboration Time: 0.046875 sec
+ Elaboration Time: 0.09375 sec
 
- Current Memory Usage: 841.454 Meg
+ Current Memory Usage: 841.49 Meg
 
- Total Signals          : 652
- Total Nets             : 3628
- Total Signal Drivers   : 241
+ Total Signals          : 655
+ Total Nets             : 3705
+ Total Signal Drivers   : 244
  Total Blocks           : 42
  Total Primitive Blocks : 26
- Total Processes        : 77
+ Total Processes        : 73
  Total Traceable Variables  : 586
- Total Scalar Nets and Variables : 7404
-Total Line Count : 739
-Total Line Count : 739
-Total Line Count : 739
-Total Line Count : 739
-Total Line Count : 739
+ Total Scalar Nets and Variables : 7481
+Total Line Count : 805
+Total Line Count : 805
 
- Total Simulation Time: 11.1875 sec
+ Total Simulation Time: 3.9375 sec
 
- Current Memory Usage: 684.159 Meg
+ Current Memory Usage: 841.49 Meg
 
-Wed Jan 27 00:23:19 2016
+Mon Feb 01 01:42:11 2016
 

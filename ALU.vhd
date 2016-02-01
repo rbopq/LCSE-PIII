@@ -36,141 +36,169 @@ end ALU;
 
 architecture Behavioral of ALU is
 
-signal reg_a, reg_b, reg_acc :std_logic_vector(7 downto 0):=X"00";
-
+signal reg_a, reg_b, reg_acc, reg_a_tmp, reg_b_tmp, reg_acc_tmp, Index_reg_tmp, Index_reg_reg :std_logic_vector(7 downto 0):=X"00";
+signal FlagZ_tmp, FlagZ_reg : std_logic;
 begin
 
-ALU_PROCC: process(Clk, Reset, Alu_op, reg_a, reg_b, reg_acc, Databus)
+ALU_PROCC: process(Alu_op, reg_a, reg_b, reg_acc, Databus, index_reg_reg, flagz_reg)
 begin
 	Databus<=(others =>'Z');
-	--if Reset = '0' then
-		--reg_acc <= (others =>'0');
-		--Index_reg <= (others =>'0');
-		--reg_a <= (others =>'0');
-		--reg_b <= (others =>'0');
-		--FlagZ <='0';
-      FlagC <='0';
-      FlagN <='0';
-      FlagE <='0';
-	--elsif Clk'event and Clk = '1' then
+	Index_reg_tmp <= Index_reg_reg;
+	FlagZ_tmp <=FlagZ_reg;
+	Reg_a_tmp <= Reg_a;
+	Reg_b_tmp <= Reg_b;
+	Reg_acc_tmp <= Reg_acc;
+
+--	FlagC_tmp <='0';
+--	FlagN_tmp <='0';
+--	FlagE_tmp <='0';
+
+
 		case Alu_op is
 			when op_add =>
-				reg_acc <= std_logic_vector(unsigned(reg_a) + unsigned(reg_b));		
+				reg_acc_tmp <= std_logic_vector(unsigned(reg_a) + unsigned(reg_b));		
 			if reg_acc = X"00" then
-				FlagZ<= '1';
+				FlagZ_tmp<= '1';
 			else 
-				FlagZ<= '0';
+				FlagZ_tmp<= '0';
 			end if; 
 		
 			when op_sub =>
-				reg_acc <= std_logic_vector(unsigned(reg_a) - unsigned(reg_b));		
+				reg_acc_tmp <= std_logic_vector(unsigned(reg_a) - unsigned(reg_b));		
 		
 				if reg_acc = X"00" then
-					FlagZ<= '1';
+					FlagZ_tmp<= '1';
 				else
-					FlagZ<='0';
+					FlagZ_tmp<='0';
 				end if;	
 			when op_shiftl =>
-				reg_acc <=std_logic_vector(unsigned(reg_acc) sll 1);
+				reg_acc_tmp <=std_logic_vector(unsigned(reg_acc) sll 1);
 			
 			when op_shiftr =>
-				reg_acc <=std_logic_vector(unsigned(reg_acc) srl 1);
+				reg_acc_tmp <=std_logic_vector(unsigned(reg_acc) srl 1);
 			
 			when op_and =>
-				reg_acc <= std_logic_vector(unsigned(reg_a) and unsigned(reg_b));
+				reg_acc_tmp <= std_logic_vector(unsigned(reg_a) and unsigned(reg_b));
 				
 				if reg_acc = X"00" then
-					FlagZ<= '1';
+					FlagZ_tmp<= '1';
 				else
-					FlagZ<='0';
+					FlagZ_tmp<='0';
 				end if;	
 			
 			when op_or =>
-				reg_acc <= std_logic_vector(unsigned(reg_a) or unsigned(reg_b));		
+				reg_acc_tmp <= std_logic_vector(unsigned(reg_a) or unsigned(reg_b));		
 				
 				if reg_acc = X"00" then
-					FlagZ<= '1';
+					FlagZ_tmp<= '1';
 				else
-					FlagZ<='0';
+					FlagZ_tmp<='0';
 				end if;	
 			
 			when op_xor =>
-				reg_acc <= std_logic_vector(unsigned(reg_a) xor unsigned(reg_b));		
+				reg_acc_tmp <= std_logic_vector(unsigned(reg_a) xor unsigned(reg_b));		
 		
 				if reg_acc = X"00" then
-					FlagZ<= '1';
+					FlagZ_tmp<= '1';
 				else
-					FlagZ<='0';
+					FlagZ_tmp<='0';
 				end if;	
 			
 			when op_cmpe =>
 			
 				if unsigned(reg_a) = unsigned(reg_b) then
-					FlagZ<= '1';
+					FlagZ_tmp<= '1';
 				else
-					FlagZ<='0';
+					FlagZ_tmp<='0';
 				end if;		
 			
 			when op_cmpl =>
 			
 				if unsigned(reg_a) < unsigned(reg_b) then
-					FlagZ<= '1';
+					FlagZ_tmp<= '1';
 				else
-					FlagZ<='0';
+					FlagZ_tmp<='0';
 				end if;		
 			
 			when op_cmpg =>
 		
 				if unsigned(reg_a) > unsigned(reg_b) then
-					FlagZ<= '1';
+					FlagZ_tmp<= '1';
 				else
-					FlagZ<='0';
+					FlagZ_tmp<='0';
 				end if;
 			
 			when op_ascii2bin =>
 				if unsigned(reg_a) >= 48 and unsigned(reg_a) <=57 then
-					reg_acc<= std_logic_vector(unsigned(reg_a) - 48);
+					reg_acc_tmp<= std_logic_vector(unsigned(reg_a) - 48);
 				else
-					reg_acc<=X"FF";
+					reg_acc_tmp<=X"FF";
 				end if;
 			
 			when op_bin2ascii =>
 				if unsigned(reg_a) >= 0 and unsigned(reg_a) <=9 then
-					reg_acc<= std_logic_vector(unsigned(reg_a) + 48);
+					reg_acc_tmp<= std_logic_vector(unsigned(reg_a) + 48);
 				else
-					reg_acc<=X"FF";
+					reg_acc_tmp<=X"FF";
 				end if;
 			
 			when op_lda =>
-				reg_a <=Databus;
+				reg_a_tmp <=Databus;
 			
 			when op_ldb =>
-				reg_b <=Databus;
+				reg_b_tmp <=Databus;
 			
 			when op_ldacc =>
-				reg_acc <=Databus;
+				reg_acc_tmp <=Databus;
 			
 			when op_ldid =>
-				Index_reg <=Databus;
+				Index_reg_tmp <=Databus;
 			
 			when op_mvacc2id =>
-				Index_reg <=reg_acc;
+				Index_reg_tmp <=reg_acc;
 
 			when op_mvacc2a =>
-				reg_a <=reg_acc;
+				reg_a_tmp <=reg_acc;
 
 			when op_mvacc2b =>
-				reg_b <=reg_acc;			
+				reg_b_tmp <=reg_acc;			
 
 			when op_oeacc =>
 				Databus<=reg_acc;
+				
+			when op_clr_flagz =>
+				FlagZ_tmp<='0';
 		
 			when others =>	
-				Databus<=(others =>'Z');
 		end case;
 	--end if; 
 end process; 
 
+reg_alu:process(Clk, Reset)
+begin
+	if Reset = '0' then 
+		reg_a <= (others=>'0');
+		reg_b <= (others=>'0');
+		reg_acc <= (others=>'0');
+		Index_reg_reg <=(others=>'0');
+		FlagZ <='0';
+		FlagZ_reg<='0';
+		FlagC <='0';
+      FlagN <='0';
+      FlagE <='0';
+	elsif Clk'event and Clk = '1' then
+		reg_a <= reg_a_tmp;
+		reg_b <= reg_b_tmp;
+		reg_acc <= reg_acc_tmp;
+		Index_reg <=Index_reg_tmp;
+		Index_reg_reg<=Index_reg_tmp;
+		FlagZ	<=FlagZ_tmp;
+		FlagZ_reg<=FlagZ_tmp;
+--		FlagC <=FlagC_tmp;
+--      FlagN <=FlagN_tmp;
+--      FlagE <=FlagE_tmp;
+	end if; 
+end process; 
 
 end Behavioral;
 

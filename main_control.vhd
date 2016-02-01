@@ -47,24 +47,25 @@ entity MAIN_CONTROL is
 		DMA_READY : in  STD_LOGIC;
 		ALU_op : out alu_op;
 		Index_Reg : in STD_LOGIC_VECTOR (7 downto 0);
-		FlagZ : in STD_LOGIC;
-		FlagC : in STD_LOGIC;
-		FlagN : in STD_LOGIC;
-		FlagE : in STD_LOGIC);
+		FlagZ : in STD_LOGIC);
+--		FlagC : in STD_LOGIC;
+--		FlagN : in STD_LOGIC;
+--		FlagE : in STD_LOGIC);
 end MAIN_CONTROL;
 
 architecture Behavioral of MAIN_CONTROL is
 
 -- Contador de programa
-signal prog_count: STD_LOGIC_VECTOR(11 downto 0); --Ocho bits 2**3
-signal EN_prog_count: STD_LOGIC;
+signal prog_count, prog_count_tmp: STD_LOGIC_VECTOR(11 downto 0); --11 bits  para poder direccinar todas las posibles direcciones de la ROM
 
 -- Registros 
 signal Reg_instruct: STD_LOGIC_VECTOR (11 downto 0); 
-signal Reg_operand: STD_LOGIC_VECTOR (11 downto 0); 
+signal Reg_operand: STD_LOGIC_VECTOR (11 downto 0);
+ 
+signal Reg_instruct_tmp: STD_LOGIC_VECTOR (11 downto 0); 
+signal Reg_operand_tmp: STD_LOGIC_VECTOR (11 downto 0);
 
-signal IS_stall: STD_LOGIC;
-signal set_prog_count: STD_LOGIC;
+--signal IS_stall: STD_LOGIC;
 
 -- Registros para controld e Databus
 --signal Databus_temp : STD_LOGIC_VECTOR(7 downto 0);
@@ -74,16 +75,16 @@ signal set_prog_count: STD_LOGIC;
 
 
 -- Señales para estados del controlador
-type State is	(Ini, Sleep, Get_instruct, Get_operand, Execute, Stall);
+type State is	(Ini, Sleep, Get_instruct, Get_operand, Decode, Execute, Stall);
 signal CurrentState, NextState : State ;
 
 
 begin
 
 -- Lógica de cálculo de salidas y microinstrucciones
-calculo_salidas: process(CurrentState, ROM_Data, Reg_instruct, Reg_operand, prog_count, Index_Reg, FlagZ)
+calculo_salidas: process(CurrentState, Reg_operand, Reg_instruct, ROM_Data, Prog_count, Index_Reg, FlagZ, dma_rq, dma_ready)
 begin
-	ROM_Addr <= (others => 'Z');
+	ROM_Addr <= Prog_count;
 	RAM_Addr <= (others => 'Z');
 	RAM_CS <= 'Z';
 	RAM_Write <= 'Z';
@@ -92,30 +93,72 @@ begin
 	DMA_ACK <= '0';
 	SEND_comm<='0';
 	ALU_op<=nop;
-	EN_prog_count<='0';
-	--Reg_instruct<=(others => '0');
-	--Reg_operand<=(others => '0');
-	set_prog_count <= '0';
-	IS_stall<='0';
+	Reg_operand_tmp<= Reg_operand;
+	Reg_instruct_tmp<= Reg_instruct;
+	Prog_count_tmp<=Prog_count;
+	NextState <= CurrentState;
 
 	case CurrentState is
 		when Ini=>
-			
+			if DMA_RQ = '1' then -- Transición si la pila del RX232 no está vacía
+				NextState<=Sleep;
+		   else
+				NextState <= Get_instruct;
+		  end if;
+		
 		when Sleep=>
+			if DMA_RQ = '0' then -- Transición si la pila del RX232 no está vacía
+				NextState <= Ini;
+			else
+				NextState <= Sleep;
+			end if;
+			
 			DMA_ACK <= '1';
 	 
 		when Get_instruct=>
-			EN_prog_count<='1';
-			ROM_Addr<=prog_count;
-			Reg_instruct<=ROM_Data;
-			 
+			--if Reg_instruct(7 downto 6) = TYPE_1 or Reg_instruct(7 downto 6) = TYPE_4 then -- Transición si la pila del RX232 no está vacía
+				--NextState <= Execute;
+			--else
+			--	NextState <= Get_operand;
+			--end if;
+			NextState <= Decode;
+			
+			ROM_Addr<=Prog_count;
+			Reg_instruct_tmp<=ROM_Data;
+			Prog_count_tmp <=std_logic_vector(unsigned(prog_count) + 1);			
+		
 		when Get_operand=>
-			EN_prog_count<='1';
-			ROM_Addr<=prog_count;
-			Reg_operand<=ROM_Data;
-			 
+			NextState <= Execute;
+
+			ROM_Addr<=Prog_count;
+			Reg_operand_tmp<=ROM_Data;
+			Prog_count_tmp <=std_logic_vector(unsigned(prog_count) + 1);
+		
+		when Decode =>
+			case Reg_instruct(7 downto 6) is
+					when TYPE_1 =>
+						NextState <= Execute;
+					when TYPE_2 =>
+						NextState <= Get_operand;
+					when TYPE_3 =>
+						if Reg_instruct(5 downto 3)=(LD & SRC_ACC) then
+							NextState <= Execute;
+						else
+							NextState <= Get_operand;
+						end if;
+					when TYPE_4 =>
+						NextState <= Stall;
+
+					when others =>
+				end case;			
+		
 		when Execute=>
-			EN_prog_count<='0';
+			if Reg_instruct(7 downto 6) = TYPE_4 then -- Transición si la pila del RX232 no está vacía
+				NextState <= Stall;
+			else
+				NextState <= Ini;
+			end if;
+			
 			case Reg_instruct(7 downto 6) is
 				when TYPE_1 =>
 					case Reg_instruct (5 downto 0) is
@@ -149,17 +192,16 @@ begin
 				when TYPE_2 =>
 					case Reg_instruct (5 downto 0) is
 						when JMP_UNCOND =>
-							EN_prog_count<='1';
-							set_prog_count <= '1';
+							Prog_count_tmp<=Reg_operand;
 						when JMP_COND =>
 							if FlagZ = '1' then
-								EN_prog_count<='1';
-								set_prog_count <= '1';
+								Prog_count_tmp<=Reg_operand;
+								ALU_op<=op_clr_flagz;
 							end if;
 						when others=>
 					end case;	
 				when TYPE_3 =>
-					case Reg_instruct (5) is
+					case Reg_instruct(5) is
 						when '0' => --LD
 							case Reg_instruct(4 downto 3) is	
 								when SRC_ACC =>
@@ -257,91 +299,36 @@ begin
 					end case;	
 				when TYPE_4 =>
 					--IS_stall<='1';
-					Send_comm<='1'; -- Señal de envío por DMA
+					-- Señal de envío por DMA
 				when others =>
 			end case;			 
 		when Stall=>
+			Send_comm<='1'; 
+			if DMA_READY = '1' then -- Transición si la pila del RX232 no está vacía
+				NextState <= Ini;
+			end if;	
 		when others=>
+	
 	end case;         
 end process;	
 
--- Proceso para el cálculo del siguiente estado
-transicion_estados:process(CurrentState, DMA_RQ, DMA_READY, Is_stall, Reg_instruct, Reg_operand)
-	begin
-		case CurrentState is
-			 when Ini=>
-				  if DMA_RQ = '1' then -- Transición si la pila del RX232 no está vacía
-						NextState<=Sleep;
-				  else
-						NextState <= Get_instruct;
-				  end if;
-
-			 when Sleep=>
-				  if DMA_RQ = '0' then -- Transición si la pila del RX232 no está vacía
-						NextState <= Ini;
-				  else
-						NextState <= Sleep;
-				  end if;
-				  
-			 when Get_instruct=>
-				  if Reg_instruct(7 downto 6) = TYPE_1 or Reg_instruct(7 downto 6) = TYPE_4 then -- Transición si la pila del RX232 no está vacía
-						NextState <= Execute;
-				  else
-						NextState <= Get_operand;
-				  end if;
-			 
-			 when Get_operand=>
-			 
-				  NextState <= Execute;
-				  
-			 when Execute=>
-				  if Reg_instruct(7 downto 6) = TYPE_4 then -- Transición si la pila del RX232 no está vacía
-						NextState <= Stall;
-				  else
-						NextState <= Ini;
-				  end if;
-
-			 when Stall=>
-				  if DMA_READY = '1' then -- Transición si la pila del RX232 no está vacía
-						NextState <= Ini;
-				  else
-						NextState <= Stall;
-				  end if;
-			when others =>
-				  
-		end case;         
-       
-end process;
-	 
+ 
 -- Registro de estados
 registro: process(Clk, Reset)
 begin
 	if Reset = '0' then 
 		CurrentState<= Ini;
+		Reg_instruct <= (others=>'0');
+		Reg_operand <= (others=>'0');
+		Prog_count<=(others=>'0');
 	elsif Clk'event and Clk = '1' then
-		CurrentState <= NextState;		
+		CurrentState <= NextState;	
+		Reg_instruct <= Reg_instruct_tmp;
+		Reg_operand <= Reg_operand_tmp;	
+		Prog_count<=Prog_count_tmp;
 	end if; 
 end process;  		
 
---Contador programa
-progr_count: process(Clk, Reset)
-begin
-	if Reset = '0' then
-		prog_count <= (others => '0');
-	elsif Clk'event and Clk = '1' then
-		if EN_prog_count = '1' then --Enable
-			if set_prog_count='1' then
-				prog_count <=Reg_operand;
-			else
-				prog_count <=std_logic_vector(unsigned(prog_count) + 1);
-			end if;	
-		end if;
-	end if; 	
-end process;
 
-
-
-
-	
 end Behavioral;
 

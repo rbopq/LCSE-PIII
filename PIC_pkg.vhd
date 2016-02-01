@@ -92,8 +92,8 @@ PACKAGE PIC_pkg IS
       op_and, op_or, op_xor,                -- logic operations
       op_cmpe, op_cmpl, op_cmpg,            -- compare operations
       op_ascii2bin, op_bin2ascii,           -- conversion operations
-      op_oeacc);                            -- output enable
-
+      op_oeacc, 									  -- output enable
+		op_clr_flagz);                        -- clear flagz    
 END PIC_pkg;
 
 PACKAGE BODY PIC_pkg IS

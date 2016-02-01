@@ -68,26 +68,69 @@ begin  -- TestBench
   SEND_STUFF : process
   begin
      RS232_RX <= '1';
-     wait for 100 us;
-     Transmit(RS232_RX, X"49");
+     -- Encendemos switch 4
+	  wait for 100 us;
+	  Transmit(RS232_RX, X"49");
      wait for 40 us;
      Transmit(RS232_RX, X"34");
      wait for 40 us;
      Transmit(RS232_RX, X"31");
 	  
-	  wait for 1000 us;
-     Transmit(RS232_RX, X"30");
+	  -- Encendemos switch 6
+	  wait for 100 us;
+	  Transmit(RS232_RX, X"49");
      wait for 40 us;
-     Transmit(RS232_RX, X"45");
+     Transmit(RS232_RX, X"36");
      wait for 40 us;
-     Transmit(RS232_RX, X"67");
+     Transmit(RS232_RX, X"31");
 	  
+	  -- Encendemos switch 7
+	  wait for 100 us;
+	  Transmit(RS232_RX, X"49");
+     wait for 40 us;
+     Transmit(RS232_RX, X"37");
+     wait for 40 us;
+     Transmit(RS232_RX, X"31");
+	  
+	  -- Apagamos switch 4
+	  wait for 100 us;
+	  Transmit(RS232_RX, X"49");
+     wait for 40 us;
+     Transmit(RS232_RX, X"34");
+     wait for 40 us;
+     Transmit(RS232_RX, X"30");
+	  
+	  -- Apagamos switch 7
+	  wait for 100 us;
+	  Transmit(RS232_RX, X"49");
+     wait for 40 us;
+     Transmit(RS232_RX, X"37");
+     wait for 40 us;
+     Transmit(RS232_RX, X"30");
+	  
+	  -- Podemos el temp a 21
 	  wait for 1000 us;
-     Transmit(RS232_RX, X"44");
+	  Transmit(RS232_RX, X"54");
      wait for 40 us;
-     Transmit(RS232_RX, X"98");
+     Transmit(RS232_RX, X"32");
      wait for 40 us;
-     Transmit(RS232_RX, X"AE");
+     Transmit(RS232_RX, X"31");
+	  
+	  -- Podemos el temp a 10
+	  wait for 1000 us;
+	  Transmit(RS232_RX, X"54");
+     wait for 40 us;
+     Transmit(RS232_RX, X"31");
+     wait for 40 us;
+     Transmit(RS232_RX, X"30");
+	
+	-- Podemos el temp a 29
+	  wait for 1000 us;
+	  Transmit(RS232_RX, X"54");
+     wait for 40 us;
+     Transmit(RS232_RX, X"32");
+     wait for 40 us;
+     Transmit(RS232_RX, X"39");	
      wait;
   end process SEND_STUFF;
    

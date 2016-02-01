@@ -46,8 +46,8 @@ Compiling architecture behavior of entity ram [ram_default]
 Compiling architecture behavior of entity PICtop [pictop_default]
 Compiling architecture testbench of entity pictop_tb
 Time Resolution for simulation is 1ps.
-Waiting for 16 sub-compilation(s) to finish...
+Waiting for 14 sub-compilation(s) to finish...
 Compiled 40 VHDL Units
 Built simulation executable C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PICtop_tb_isim_beh.exe
-Fuse Memory Usage: 40040 KB
-Fuse CPU Usage: 1108 ms
+Fuse Memory Usage: 40660 KB
+Fuse CPU Usage: 1077 ms
