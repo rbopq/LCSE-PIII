@@ -1,0 +1,2 @@
+vhdl isim_temp "netgen/par/PICtop_timesim.vhd"
+vhdl isim_temp "tb_PICtop.vhd"

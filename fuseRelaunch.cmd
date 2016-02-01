@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PICtop_tb_isim_beh.exe" -prj "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PICtop_tb_beh.prj" "work.PICtop_tb" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PICtop_tb_isim_par.exe" -prj "C:/Users/rboq/Documents/LCSE/PRACTICAIII/LCSE-PIII/PICtop_tb_par.prj" "work.PICtop_tb" 

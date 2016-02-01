@@ -1,0 +1,31 @@
+Command line:
+   PICtop_tb_isim_par.exe
+     -simmode  gui
+     -sdfmax  /UUT/=netgen/par/PICtop_timesim.sdf
+     -sdfroot  /UUT
+     -simrunnum  0
+     -socket  50008
+
+Mon Feb 01 18:48:19 2016
+
+
+ Elaboration Time: 1.54688 sec
+
+ Current Memory Usage: 996.782 Meg
+
+ Total Signals          : 38704
+ Total Nets             : 28497
+ Total Signal Drivers   : 24363
+ Total Blocks           : 8085
+ Total Primitive Blocks : 4543
+ Total Processes        : 24335
+ Total Traceable Variables  : 55424
+ Total Scalar Nets and Variables : 240474
+Total Line Count : 76180
+
+ Total Simulation Time: 7.82813 sec
+
+ Current Memory Usage: 839.487 Meg
+
+Mon Feb 01 19:07:20 2016
+
